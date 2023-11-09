@@ -1,8 +1,8 @@
 /*Se crea la base de datos */
-CREATE SCHEMA swiftDB;
+CREATE SCHEMA swiftDB3;
 
 /*Se crea un usuario para la base de datos llamado "usuario_prueba" y tiene la contraseña "Usuario_Clave."*/
-create user 'admin'@'%' identified by 'admin123';
+create user 'adminn'@'%' identified by 'admin123';
 
 /*Se asignan los prvilegios sobr ela base de datos prueba_a al usuario creado */
 grant all privileges on swiftDB.* to 'admin'@'%';
@@ -35,19 +35,15 @@ create table swiftDB.gastos (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
-/*Tabla de Ingresos*/
-create table swiftDB.ingreso (
+CREATE TABLE swiftDB.ingreso (
   id_ingreso INT NOT NULL AUTO_INCREMENT,
-  nombreIngreso VARCHAR(60) NOT NULL,
-  descripcion VARCHAR(150) NOT NULL,
+  nombreingreso VARCHAR(60) NOT NULL,
+  descripingreso VARCHAR(150) NOT NULL,
   monto DOUBLE NOT NULL,
-  mesIngreso VARCHAR(40) NOT NULL,
-  numQuincena INT NOT NULL,
-  userID INT NOT NULL,
-  PRIMARY KEY (id_ingreso),
-  FOREIGN KEY (userID) REFERENCES swiftDB.usuario(id_usuario))
-ENGINE = InnoDB
+  PRIMARY KEY (id_ingreso)
+) ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
+
 
 /*Tabla de Credito*/
 create table swiftDB.credito (
@@ -101,10 +97,10 @@ INSERT INTO swiftDB.gastos (id_gasto, nombreGasto, descripcion, monto, mesIngres
 ('2', 'Internet', 'Internet', 50000, 'Noviembre', '1', 2),
 ('3', 'Comida', 'Primera parte de comrpas', 150000, 'Noviembre', '2', 1);
 
-INSERT INTO swiftDB.ingreso (id_ingreso, nombreIngreso, descripcion, monto, mesIngreso, numQuincena, userID) VALUES 
-('1', 'Pago fijo', 'Planilla', 500000, 'Noviembre', '1', 1),
-('2', 'Pago fijo', 'Planilla', 300000, 'Noviembre', '1', 2),
-('3', 'SP', 'Servicios brindados a comunidad', 150000, 'Noviembre', '2', 1);
+INSERT INTO swiftDB.ingreso (id_ingreso, nombreingreso, descripingreso, monto) VALUES
+('1', 'Pago fijo', 'Planilla', 500000),
+('2', 'Pago fijo', 'Planilla', 300000),
+('3', 'SP', 'Servicios brindados a comunidad', 150000);
 
 INSERT INTO swiftDB.credito (id_credito, nombreCredito, mesRegistro, monto, numCuotas, cuotasRealizadas, userID) VALUES 
 ('1', 'Taladro', 'Noviembre', 50000, 5, 1, 1),

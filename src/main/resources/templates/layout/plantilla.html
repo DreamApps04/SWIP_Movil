@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!---->
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head th:fragment="head">
         <title>SWIP by DreamApps</title>
         <meta charset="UTF-8"/>
@@ -12,7 +12,7 @@
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
         <script src="https://kit.fontawesome.com/02425c13ba.js" crossorigin="anonymous"></script>
-        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+        <link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <header th:fragment="header" class="header">
@@ -25,17 +25,18 @@
                 <div class="menu">
                     <ul class="menu-links">
                         <li class="nav-link"><a href="#"><i class="fa-solid fa-house" style="color: #ffffff;"></i>&nbsp;&nbsp;INICIO</a></li>
-                        <li class="nav-link"><a href="#"><i class="fa-solid fa-wallet" style="color: #ffffff;"></i>&nbsp;&nbsp;INGRESO</a></li>
+                        <li class="nav-link"><a th:href="@{/ingreso/listado}"><i class="fa-solid fa-wallet" style="color: #ffffff;"></i>&nbsp;&nbsp;INGRESO</a></li>
                         <li class="nav-link"><a href="#"><i class="fa-solid fa-money-bills" style="color: #ffffff;"></i>&nbsp;&nbsp;PRESUPUESTO</a></li>
                         <li class="nav-link"><a href="#"><i class="fa-solid fa-credit-card" style="color: #ffffff;"></i>&nbsp;&nbsp;CRÉDITO</a></li>
                         <li class="nav-link"><a href="#"><i class="fa-solid fa-piggy-bank" style="color: #ffffff;"></i>&nbsp;&nbsp;AHORRO</a></li>
                         <li class="nav-link"><a href="#"><i class="fa-solid fa-file-invoice" style="color: #ffffff;"></i>&nbsp;&nbsp;REPORTE</a></li>
                     </ul>
                 </div>
-                <div >
+                <div>
                     <h6 class="bottom-content">DREAM APPS</h6>
                 </div>
             </nav>
         </header>
     </body>
 </html>
+
