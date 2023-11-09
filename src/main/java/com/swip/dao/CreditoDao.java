@@ -1,5 +1,8 @@
 package com.swip.dao;
 
-public interface CreditoDao {
+import com.swip.domain.Credito;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CreditoDao extends JpaRepository<Credito, Long>{
     
 }
