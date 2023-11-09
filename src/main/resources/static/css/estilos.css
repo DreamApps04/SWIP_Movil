@@ -63,3 +63,12 @@ body{
     height: 100vh;
     width: calc(100% - 200px);
 }
+
+.titleBar{
+    width: 745px;
+    height: 87px;
+    top: 45px;
+    left: 50px;
+    border-radius: 30px;
+    background: #3A86CB;
+}
