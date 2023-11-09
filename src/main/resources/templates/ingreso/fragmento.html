@@ -1,0 +1,141 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>SWIP</title>
+    </head>
+    <body>  
+        <section th:fragment="GestionIngresos" class="home">
+             <div class="container">
+                <div class="row">
+                    <!-- Sección GestionIngresos a la izquierda -->
+                    <div class="col-md-6">
+                        <div class="text-center" style="background-color: #3A86CB; color: white;">
+                            <h2>Gestión de Ingresos</h2>
+                        </div>
+
+                        <div class="mb-5">
+                            <label for="nombreIngreso" class="form-label">Nombre de Ingreso</label>
+                            <input type="text" class="form-control" id="nombreIngreso" placeholder="Ingrese el nombre del ingreso" style="margin-right: 3cm;">
+                        </div>
+                        <div class="mb-5">
+                            <label for="descripcionIngreso" class="form-label">Descripción de Ingreso</label>
+                            <input type="text" class="form-control" id="descripcionIngreso" placeholder="Ingrese la descripción del ingreso" style="margin-right: 3cm;">
+                        </div>
+                        <div class="mb-5">
+                            <label for="montoIngreso" class="form-label">Monto del Ingreso</label>
+                            <input type="text" class="form-control" id="montoIngreso" placeholder="Ingrese el monto del ingreso" style="margin-right: 3cm;">
+                        </div>
+                        <div>   
+                            <button 
+                                type="button" 
+                                class="btn btn-primary btn-block" 
+                                data-bs-toggle="modal" 
+                                data-bs-target="#agregarIngreso">
+                                <i></i> Guardar
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Sección listadoIngresos a la derecha -->
+<div class="col-md-6">
+    <div class="col-md-12">
+        <div class="card">
+            <div th:if="${ingresos != null and not ingresos.empty}">
+                <table class="table table-bordered table-dark">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Monto</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="ingreso, contador : ${ingresos}">
+                            <td th:text="${contador.count}"></td>
+                            <td th:text="${ingreso.nombreIngreso}"></td>
+                            <td th:text="${ingreso.descripcionIngreso}"></td>
+                            <td th:text="${ingreso.monto}"></td>
+                            <td>
+                                <a th:href="@{/ingreso/eliminar/}+${ingreso.idIngreso}" class="btn btn-danger">
+                                     <i class="fas fa-trash"></i> Eliminar
+                                </a>
+                                <a th:href="@{/ingreso/modificar/}+${ingreso.idIngreso}" class="btn btn-success">
+                                    <i class="fas fa-pencil-alt"></i> Actualizar
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-center p-2" th:if="${ingresos == null or ingresos.empty}">
+                <span>[[#{lista.vacia}]]</span>
+            </div>
+            <h4>Total: <span th:text="${#lists.size(ingresos)}"></span></h4>
+        </div>
+    </div>
+    <div class="col-md-12" bg-dark>
+        <div class="card text-center mb-3">
+            <div class="card-body">
+                <h5>Total</h5>
+                <h6 class="fs-2"><i class="fas fa-money"></i> [[${totalIngresos}]]</h6>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+       </div>
+        </section>
+<section th:fragment="editarIngreso">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <form method="POST"
+                  th:action="@{/ingreso/guardar}" 
+                  th:object="${ingreso}"
+                  class="was-validated"                          
+                  enctype="multipart/form-data">
+                <input type="hidden" name="idIngreso" th:field="*{idIngreso}"/>
+                <div id="details">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header bg-primary text-white">
+                                        <h4>Editar Ingreso</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="mb-3">
+                                            <label for="nombreIngreso">Nombre de Ingreso</label>
+                                            <input type="text" class="form-control" 
+                                                   name="nombreIngreso" th:field="*{nombreIngreso}"
+                                                   required="true">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="descripcionIngreso">Descripción de Ingreso</label>
+                                            <input type="text" class="form-control" 
+                                                   name="descripcionIngreso" th:field="*{descripcionIngreso}"
+                                                   required="true">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="monto">Monto</label>
+                                            <input type="text" class="form-control" 
+                                                   name="monto" th:field="*{monto}"
+                                                   required="true">
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+    </body>
+</html>
