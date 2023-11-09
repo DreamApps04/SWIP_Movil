@@ -2,7 +2,6 @@ package com.swip.controller;
 
 import com.swip.domain.Usuario;
 import com.swip.service.UsuarioService;
-import com.swip.service.impl.FirebaseStorageServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,8 +33,6 @@ public class usuarioController {
         return "/usuario/modifica";
     }
     
-    @Autowired
-    private FirebaseStorageServiceImpl firebaseStorageService;
     
     @PostMapping("/guardar")
     public String usuarioGuardar(Usuario usuario,
