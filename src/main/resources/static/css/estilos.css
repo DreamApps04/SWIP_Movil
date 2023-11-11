@@ -72,3 +72,110 @@ body{
     border-radius: 30px;
     background: #3A86CB;
 }
+
+.card{
+    background-color: #3A86CB;
+    margin-top: 20px;
+    color: white;
+    border-radius: 50px;
+    width: 475px;
+    height: 35px;
+   
+}
+
+.container{
+    margin-left: 10px;   
+}
+
+.form-control{
+    background-color: #041023;
+    color: white;
+    margin-right: 3cm;
+     border-color: #3A86CB;
+}
+
+.container.botones{
+    margin-right: 10px; 
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.boton.eliminar{
+    width: 100px;
+    height: 35px;
+    background-color: #FF6347;
+    border-radius: 50px;
+    color:white;
+    border:none;
+}
+
+.boton.guardar{
+    width: 100px;
+    height: 35px;
+    background-color: #87CEFA;
+    border-radius: 50px;
+    color:white;
+    border:none;
+}
+
+.boton.editar{
+    width: 100px;
+    height: 35px;
+    background-color: #A9A9A9;
+    border-radius: 50px;
+    color:white;
+    border:none;
+}
+
+.iconos {
+    display: flex;
+    justify-content: center;
+}
+
+.icono-container {
+    background-color: #3A86CB;
+    padding: 10px;
+    border-radius: 125px;
+    margin-right: 10px;
+ 
+}
+
+.icono-container i {
+    color: white; 
+    font-size: 24px;
+}
+
+.ingresos{
+    display: flex;
+    justify-content: space-between;
+}
+
+.tablaingresos {
+overflow: hidden;
+width: fit-content;
+border-radius: 2rem;
+border: 1px solid #4897E0;
+margin-left: 45px;
+margin-top: 25px;
+margin-right: 25px;
+display: inline-block; 
+
+}
+.tablaingresos td{
+    border: 1px solid #4897E0;
+    height: 80px;
+}
+
+.iconostabla{
+    background-color: #3A86CB;
+    padding: 10px;
+    border-radius: 125px; 
+    margin-right: 125px;
+}
+
+.iconostabla i{
+    color: white; 
+    font-size: 24px;
+}
+
