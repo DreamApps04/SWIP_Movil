@@ -15,34 +15,32 @@ public class IngresoServiceImpl implements IngresoService {
     @Autowired
     private IngresoDao ingresoDao;
 
-    @Autowired
-    public IngresoServiceImpl(IngresoDao ingresoDao) {
-        this.ingresoDao = ingresoDao;
-    }
-
     @Override
     @Transactional(readOnly = true)
     public List<Ingreso> getAllIngresos() {
-        return ingresoDao.findAll();
+        var lista = ingresoDao.findAll();
+        
+        return lista;
     }
-
-    @Override
-    @Transactional(readOnly = true)
-    public Ingreso getIngreso(Ingreso ingreso) {
-        return ingresoDao.findById(ingreso.getIdIngreso()).orElse(null);
-    }
-
-    @Override
+    
+  @Override
     @Transactional
     public void save(Ingreso ingreso) {
         ingresoDao.save(ingreso);
     }
 
-    @Override
+        @Override
     @Transactional
     public void delete(Ingreso ingreso) {
         ingresoDao.delete(ingreso);
     }
+
+ @Override
+@Transactional(readOnly = true)
+public Ingreso getIngreso(Ingreso ingreso) {
+    return ingresoDao.findById(ingreso.getIdIngreso()).orElse(null);
 }
 
+  
 
+}

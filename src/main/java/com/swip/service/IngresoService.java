@@ -13,4 +13,6 @@ public interface IngresoService {
     public void save(Ingreso ingreso);
     
     public void delete(Ingreso ingreso);
+      
+
 }
