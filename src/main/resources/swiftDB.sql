@@ -1,8 +1,10 @@
 /*Se crea la base de datos */
-CREATE SCHEMA swiftDB3;
+drop schema if exists swiftDB;
+drop user if exists admin;
+CREATE SCHEMA swiftDB;
 
 /*Se crea un usuario para la base de datos llamado "usuario_prueba" y tiene la contraseña "Usuario_Clave."*/
-create user 'adminn'@'%' identified by 'admin123';
+create user 'admin'@'%' identified by 'admin123';
 
 /*Se asignan los prvilegios sobr ela base de datos prueba_a al usuario creado */
 grant all privileges on swiftDB.* to 'admin'@'%';
@@ -37,11 +39,12 @@ DEFAULT CHARACTER SET = utf8mb4;
 
 CREATE TABLE swiftDB.ingreso (
   id_ingreso INT NOT NULL AUTO_INCREMENT,
-  nombreingreso VARCHAR(60) NOT NULL,
+  nombre_ingreso VARCHAR(60) NOT NULL,
+  icono VARCHAR(255) NOT NULL,
   descripingreso VARCHAR(150) NOT NULL,
   monto DOUBLE NOT NULL,
-  PRIMARY KEY (id_ingreso)
-) ENGINE = InnoDB
+  PRIMARY KEY (id_ingreso))
+ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
 
@@ -86,21 +89,21 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
 
-/*Se insertan 3 registros en la tabla cliente como ejemplo */
 INSERT INTO swiftDB.usuario (id_usuario, email, nombre, fechaIngreso, numeroCelular, contrasena, activo) VALUES 
-('1', 'j@j.com', 'joseth', sysdate(), '8888888', '123456789', true),
-('2', 'a@a.com', 'Angelo', sysdate(), '8888888', '123456789', true),
-('3', 'c@c.com', 'carlos', sysdate(), '8888888', '123456789', false);
+('1', 'j@j.com', 'joseth', CURDATE(), '8888888', '123456789', true),
+('2', 'a@a.com', 'Angelo', CURDATE(), '8888888', '123456789', true),
+('3', 'c@c.com', 'carlos', CURDATE(), '8888888', '123456789', false);
+
 
 INSERT INTO swiftDB.gastos (id_gasto, nombreGasto, descripcion, monto, mesIngreso, numQuincena, userID) VALUES 
 ('1', 'Servicios', 'pago de agua y luz', 50000, 'Noviembre', '1', 1),
 ('2', 'Internet', 'Internet', 50000, 'Noviembre', '1', 2),
 ('3', 'Comida', 'Primera parte de comrpas', 150000, 'Noviembre', '2', 1);
 
-INSERT INTO swiftDB.ingreso (id_ingreso, nombreingreso, descripingreso, monto) VALUES
-('1', 'Pago fijo', 'Planilla', 500000),
-('2', 'Pago fijo', 'Planilla', 300000),
-('3', 'SP', 'Servicios brindados a comunidad', 150000);
+INSERT INTO swiftDB.ingreso (id_ingreso, nombre_ingreso, icono, monto, descripingreso) VALUES
+('1','Pago Fijo', 'fas fa-briefcase', 500000, 'Planilla'),
+('2','Pago Fijo', 'fas fa-briefcase', 300000, 'Planilla'),
+('3','SP', 'fas fa-handshake', 150000, 'Servicios brindados a la comunidad');
 
 INSERT INTO swiftDB.credito (id_credito, nombreCredito, mesRegistro, monto, numCuotas, cuotasRealizadas, userID) VALUES 
 ('1', 'Taladro', 'Noviembre', 50000, 5, 1, 1),

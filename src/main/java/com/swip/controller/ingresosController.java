@@ -8,18 +8,24 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+
 
 @Controller
 @Slf4j
 @RequestMapping("/ingreso")
 public class ingresosController {
-    private final IngresoService ingresoService;
 
     @Autowired
-    public ingresosController(IngresoService ingresoService) {
-        this.ingresoService = ingresoService;
-    }
+    private IngresoService ingresoService;
 
     @GetMapping("/listado")
     public String inicio(Model model) {
@@ -28,6 +34,7 @@ public class ingresosController {
         return "/ingreso/listado";
     }
 
+    
 
     @GetMapping("/nuevo")
     public String ingresoNuevo(Model model) {
@@ -35,26 +42,28 @@ public class ingresosController {
         return "/ingreso/modifica";
     }
 
-    @PostMapping("/guardar")
-    public String ingresoGuardar(@ModelAttribute Ingreso ingreso) {
-        ingresoService.save(ingreso);
-        return "redirect:/ingreso/listado";
-    }
+@PostMapping("/guardar")
+public String ingresoGuardar(@ModelAttribute Ingreso ingreso, @RequestParam("icono") String icono) {
+    ingreso.setIcono(icono);
+    ingresoService.save(ingreso);
+    return "redirect:/ingreso/listado";
+}
 
-    @GetMapping("/eliminar/{idIngreso}")
-    public String ingresoEliminar(@PathVariable long idIngreso) {
-        Ingreso ingreso = new Ingreso();
-        ingreso.setIdIngreso(idIngreso);
-        ingresoService.delete(ingreso);
-        return "redirect:/ingreso/listado";
-    }
+
+
+   @RequestMapping(value = "/eliminar/{idIngreso}", method = RequestMethod.POST)
+public String eliminarIngreso(@ModelAttribute("ingreso") Ingreso ingreso) {
+    ingresoService.delete(ingreso);
+    return "redirect:/ingreso/listado";
+}
+
+
 
     @GetMapping("/modificar/{idIngreso}")
-    public String ingresoModificar(@PathVariable long idIngreso, Model model) {
-        Ingreso ingreso = new Ingreso();
-        ingreso.setIdIngreso(idIngreso);
+    public String modificarIngreso(Ingreso ingreso, Model model) {
         ingreso = ingresoService.getIngreso(ingreso);
         model.addAttribute("ingreso", ingreso);
         return "/ingreso/modifica";
     }
 }
+

@@ -17,24 +17,27 @@ import lombok.Data;
 @Entity
 @Table(name = "ingreso")
 public class Ingreso implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_ingreso")
     private long idIngreso;
-    @Column(name = "nombreingreso") // Cambio de nombre de la columna
-    private String nombreIngreso; // Cambio de nombre de la propiedad
-    @Column(name = "descripingreso") // Cambio de nombre de la columna
-    private String descripcionIngreso; // Cambio de nombre de la propiedad
-    private double monto; // Asegúrate de usar double en lugar de long para monto
+    
+    private String nombre_ingreso;
+    private String icono;
+    private String descripingreso;
+    private double monto;
 
     public Ingreso() {
     }
 
-    public Ingreso(String nombreIngreso, String descripcionIngreso, double monto) {
-        this.nombreIngreso = nombreIngreso;
-        this.descripcionIngreso = descripcionIngreso;
+     public Ingreso(String nombre_ingreso, String icono, double monto, String descripingreso) {
+        this.nombre_ingreso = nombre_ingreso;
+        this.icono = icono;
         this.monto = monto;
+        this.descripingreso = descripingreso;
     }
+    
 }
 
 

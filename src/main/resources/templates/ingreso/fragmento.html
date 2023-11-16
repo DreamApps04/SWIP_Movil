@@ -2,8 +2,7 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head th:replace="~{layout/plantilla :: head}">
-        <link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-Gn538aLMq0OnhgxJ5RnZ6B8USPZl2U5tH4GrZzS9PW7D0j6x2eDG1uZxAYbW2h9Ug4z7P3d3JzG4DSkmAziSUg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
         <title>SWIP</title>
     </head>
     <body>  
@@ -11,122 +10,108 @@
             <div class="ingresos">
                 <!-- Sección GestionIngresos a la izquierda -->
                 <div class="col-md-6">
-                    <div class="container">
-                        <!-- Sección GestionIngresos a la izquierda -->
-                        <div class="card">
-                            <div class="text-center">
-                                <h5>Gestión de Ingresos</h5>
+                    <form th:action="@{/ingreso/guardar}" th:object="${ingreso}" method="POST" enctype="multipart/form-data">
+                        <div class="container">
+                            <div class="card">
+                                <div class="text-center">
+                                    <h5>Gestión de Ingresos</h5>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="nombre_ingreso" class="form-label">Nombre de Ingreso</label>
+                                <input type="text" class="form-control" name="nombre_ingreso" required="true"/>
+                            </div>
+                            <div class="mb-4">
+                                <label for="monto" class="form-label">Monto del Ingreso</label>
+                                <input type="text" class="form-control" name="monto" required="true"/>
+                            </div>
+                            <div class="mb-4">
+                                <label for="descripingreso" class="form-label">Descripción de Ingreso</label>
+                                <input type="text" class="form-control" name="descripingreso" required="true" />                                
+                            </div>
+                            <div class="mb-4">
+                                <div class="iconoss">
+                                    <div class="icono-container">
+                                        <input type="radio" id="icono1" name="icono" class="input-icono" value="fa-handshake" style="display: none;"/>
+                                        <label for="icono1" class="boton icono-boton"><i class="fas fa-handshake"></i></label>
+                                    </div>
+                                    <div class="icono-container">
+                                        <input type="radio" id="icono2" name="icono" class="input-icono" value="fa-briefcase" style="display: none;"/>
+                                        <label for="icono2" class="boton icono-boton"><i class="fas fa-briefcase"></i></label>
+                                    </div>
+                                    <div class="icono-container">
+                                        <input type="radio" id="icono3" name="icono" class="input-icono" value="fa-sack-dollar" style="display: none;"/>
+                                        <label for="icono3" class="boton icono-boton"><i class="fas fa-sack-dollar"></i></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="container botones">
+                                <button type="submit" class="boton guardar" name="accion" value="guardar">Guardar</button>
                             </div>
                         </div>
-                        <div class="mb-4">
-                            <label for="nombreIngreso" class="form-label">Nombre de Ingreso</label>
-                            <input type="text" class="form-control" id="nombreIngreso">
-                        </div>
-                        <div class="mb-4">
-                            <label for="descripcionIngreso" class="form-label">Descripción de Ingreso</label>
-                            <input type="text" class="form-control" id="descripcionIngreso">
-                        </div>
-                        <div class="mb-4">
-                            <label for="montoIngreso" class="form-label">Monto del Ingreso</label>
-                            <input type="text" class="form-control" id="montoIngreso">
-                        </div>
-                        <div class="iconos">
-                            <div class="icono-container">
-                                <i class="fas fa-handshake"></i>
-                            </div>
-                            <div class="icono-container">
-                                <i class="fas fa-briefcase"></i>
-                            </div>
-                            <div class="icono-container">
-                                <i class="fas fa-sack-dollar"></i>
-                            </div>
-                        </div>
-                        <div class="container botones">
-                            <button type="button" class="boton guardar"> 
-                                <i></i> Guardar
-                            </button> 
-                            <button type="button" class="boton editar">
-                                <i></i> Editar
-                            </button>
-                            <button type="button" class="boton eliminar">
-                                <i></i> Eliminar
-                            </button>  
-                        </div>
-                    </div>
+                    </form>   
                 </div>
+
+
+            
+             
+             
+             
+             
+             
                 <!-- Sección listadoIngresos a la derecha -->
 
+      <div class="col-md-6 text-end">
+    <div class="tablaingresos">
+        <div th:if="${ingresos != null and not ingresos.empty}">       
+            <table>
+                <thead>
+                    <!-- Encabezados de la tabla si es necesario -->
+                </thead>
+                <tbody>
+                    <tr th:each="ingresoItem : ${ingresos}" th:if="${ingresoItem != null}">
+                        <td>
+                            <!-- Contenedor para el nombre del ingreso -->
+                            <div class="nombre-container">
+                                <span th:text="${ingresoItem.nombre_ingreso}"></span>
+                            </div>
+                            <!-- Contenedor para el icono y el monto -->
+                            <div class="separacioniconomonto">
+                                <div class="icono-container-table">
+                                    <i th:class="${ingresoItem.icono}"></i>
+                                </div>
+                                <!-- Contenedor para el monto -->
+                                <div class="monto-container-table">
+                                    <span th:text="${ingresoItem.monto}"></span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="eliminaringreso">
+                                <div class="descripcion-container">
+                                    <span th:text="${ingresoItem.descripingreso}"></span>
+                                </div>
+                                <form th:action="@{/ingreso/eliminar/{idIngreso}}" method="post">
+                                    <input type="hidden" name="idIngreso" th:value="${ingresoItem.idIngreso}" />
+                                    <button type="submit" class="btn btn-danger eliminar-btn">
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
 
-                <div class="col-md-6 text-end">
-                    <div class="tablaingresos">
-                    <table>
-                        <thead>   
-                        </thead>
-                        <tbody>         
-                            <tr>
-                                <td>
-                                    Reintegro de prestamos
-                                    <div class="iconostabla">
-                                        <i class="fas fa-briefcase"></i>
-                                    </div>                           
-                                </td>
-                                <td>
-                                   prestamo de un amigo por tramites universitarios y ajustes de saldos
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Pago Mensual 
-                                    <div class="iconostabla">
-                                  <i class="fas fa-briefcase"></i> 
-                                    </div> 
-                                </td>
-                                <td>
-                                    Salario quincenal
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Extras
-                                    <div class="iconostabla">
-                                        <i class="fas fa-briefcase"></i> 
-                                    </div>
-
-                                </td>
-                                <td>
-                                    Pago por horas extras
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Ahorro
-                                    <div class="iconostabla">
-                                        <i class="fas fa-briefcase"></i>
-                                    </div>
-
-                                </td>
-                                <td>
-                                    Ahorro Personal
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Servicios Profesionales
-                                    <div class="iconostabla">
-                                        <i class="fas fa-briefcase"></i>  
-                                    </div>
-
-                                </td>
-                                <td>
-                                    Servicios de programacion
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    </div>
-                </div>
-            </div>
-        </section>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+      </div>
+                
+                
+            </div>  
+         </section>
 
     </body>
 </html>
+
