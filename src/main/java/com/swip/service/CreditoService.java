@@ -5,6 +5,9 @@ import java.util.List;
 
 
 public interface CreditoService {
+    //Obtener todos los ingresos
+    public List<Credito> getAllCreditos();
+    
     // Se obtiene un listado de productos en un List
     public List<Credito> getCreditos(long idcredito);
     

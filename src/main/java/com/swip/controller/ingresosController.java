@@ -34,8 +34,6 @@ public class ingresosController {
         return "/ingreso/listado";
     }
 
-    
-
     @GetMapping("/nuevo")
     public String ingresoNuevo(Model model) {
         model.addAttribute("ingreso", new Ingreso());
@@ -48,8 +46,6 @@ public String ingresoGuardar(@ModelAttribute Ingreso ingreso, @RequestParam("ico
     ingresoService.save(ingreso);
     return "redirect:/ingreso/listado";
 }
-
-
 
    @RequestMapping(value = "/eliminar/{idIngreso}", method = RequestMethod.POST)
 public String eliminarIngreso(@ModelAttribute("ingreso") Ingreso ingreso) {

@@ -24,15 +24,20 @@ public class Credito implements Serializable{
     private String nombreCred;
     private String mesRegistro;
     private double monto;
-    private String numCuotas;
-    private String cuotasRealizadas;
+    private int numCuotas;
+    @Column(name="cuotasRealizadas")
+    private int cuotasRealizadas;
     private int userID;
     
     public Credito(){
     }
-    
-    public Credito(String nombre, long idcredito) {
-        this.nombreCred = nombre;
-        this.idcredito = idcredito;
+
+    public Credito(String nombreCred, String mesRegistro, double monto, int numCuotas, int cuotasRealizadas) {
+        this.nombreCred = nombreCred;
+        this.mesRegistro = mesRegistro;
+        this.monto = monto;
+        this.numCuotas = numCuotas;
+        this.cuotasRealizadas = cuotasRealizadas;
     }
+
 }

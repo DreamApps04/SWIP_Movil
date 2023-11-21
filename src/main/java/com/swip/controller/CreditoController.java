@@ -2,6 +2,7 @@ package com.swip.controller;
 
 import com.swip.domain.Credito;
 import com.swip.service.CreditoService;
+import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,23 +23,20 @@ public class CreditoController {
 
     @GetMapping("/creditos")
     public String inicio(Model model) {
-        var credito = creditoService.getCreditos(0);
-        model.addAttribute("credito", credito);
-        model.addAttribute("totalCreditos", credito.size());
+        List<Credito> creditos = creditoService.getAllCreditos(); //Obtenemos todos los datos de creditos
+        model.addAttribute("creditos", creditos);
         return "/credito/creditos";
     }
     
     @GetMapping("/nuevo")
-    public String creditoNuevo(Credito credito) {
+    public String creditoNuevo(Model model) {
+        model.addAttribute("credito", new Credito());
         return "/credito/modifica";
     }
     
     @PostMapping("/guardar")
-    public String creditoGuardar(Credito credito,
-            @RequestParam("imagenFile") MultipartFile imagenFile) {        
-        if (!imagenFile.isEmpty()) {
-            creditoService.save(credito);
-        }
+    public String creditoGuardar(Credito credito) {        
+        
         creditoService.save(credito);
         return "redirect:/credito/creditos";
     }

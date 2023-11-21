@@ -2,8 +2,7 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head th:replace="~{layout/plantilla :: head}">
-
-        <title>SWIP</title>
+        <title>SWIFT by DreamApps</title>
     </head>
     <body>  
         <section th:fragment="GestionIngresos" class="home">
@@ -52,65 +51,57 @@
                         </div>
                     </form>   
                 </div>
-
-
-            
-             
-             
-             
-             
-             
                 <!-- Sección listadoIngresos a la derecha -->
 
-      <div class="col-md-6 text-end">
-    <div class="tablaingresos">
-        <div th:if="${ingresos != null and not ingresos.empty}">       
-            <table>
-                <thead>
-                    <!-- Encabezados de la tabla si es necesario -->
-                </thead>
-                <tbody>
-                    <tr th:each="ingresoItem : ${ingresos}" th:if="${ingresoItem != null}">
-                        <td>
-                            <!-- Contenedor para el nombre del ingreso -->
-                            <div class="nombre-container">
-                                <span th:text="${ingresoItem.nombre_ingreso}"></span>
-                            </div>
-                            <!-- Contenedor para el icono y el monto -->
-                            <div class="separacioniconomonto">
-                                <div class="icono-container-table">
-                                    <i th:class="${ingresoItem.icono}"></i>
-                                </div>
-                                <!-- Contenedor para el monto -->
-                                <div class="monto-container-table">
-                                    <span th:text="${ingresoItem.monto}"></span>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="eliminaringreso">
-                                <div class="descripcion-container">
-                                    <span th:text="${ingresoItem.descripingreso}"></span>
-                                </div>
-                                <form th:action="@{/ingreso/eliminar/{idIngreso}}" method="post">
-                                    <input type="hidden" name="idIngreso" th:value="${ingresoItem.idIngreso}" />
-                                    <button type="submit" class="btn btn-danger eliminar-btn">
-                                        <i class="fa-solid fa-xmark"></i>
-                                    </button>
-                                </form>
-                            </div>
-                        </td>
+                <div class="col-md-6 text-end">
+                    <div class="tablaingresos">
+                        <div th:if="${ingresos != null and not ingresos.empty}">       
+                            <table>
+                                <thead>
+                                    <!-- Encabezados de la tabla si es necesario -->
+                                </thead>
+                                <tbody>
+                                    <tr th:each="ingresoItem : ${ingresos}" th:if="${ingresoItem != null}">
+                                        <td>
+                                            <!-- Contenedor para el nombre del ingreso -->
+                                            <div class="nombre-container">
+                                                <span th:text="${ingresoItem.nombre_ingreso}"></span>
+                                            </div>
+                                            <!-- Contenedor para el icono y el monto -->
+                                            <div class="separacioniconomonto">
+                                                <div class="icono-container-table">
+                                                    <i th:class="${ingresoItem.icono}"></i>
+                                                </div>
+                                                <!-- Contenedor para el monto -->
+                                                <div class="monto-container-table">
+                                                    <span th:text="${ingresoItem.monto}"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="eliminaringreso">
+                                                <div class="descripcion-container">
+                                                    <span th:text="${ingresoItem.descripingreso}"></span>
+                                                </div>
+                                                <form th:action="@{/ingreso/eliminar/{idIngreso}}" method="post">
+                                                    <input type="hidden" name="idIngreso" th:value="${ingresoItem.idIngreso}" />
+                                                    <button type="submit" class="btn btn-danger eliminar-btn">
+                                                        <i class="fa-solid fa-xmark"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
 
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-      </div>
-                
-                
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>  
-         </section>
+        </section>
 
     </body>
 </html>
