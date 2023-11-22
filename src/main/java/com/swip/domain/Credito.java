@@ -21,23 +21,22 @@ public class Credito implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Se generan valores relacionados a la DB
     @Column(name="id_credito")
     private long idcredito;
-    private String nombreCred;
-    private String mesRegistro;
+    private String nombre_Credito;
+    private String mes_Registro;
     private double monto;
-    private int numCuotas;
-    @Column(name="cuotasRealizadas")
-    private int cuotasRealizadas;
+    private int num_Cuotas;
+    private int cuotas_Realizadas;
     private int userID;
     
     public Credito(){
     }
 
-    public Credito(String nombreCred, String mesRegistro, double monto, int numCuotas, int cuotasRealizadas) {
-        this.nombreCred = nombreCred;
-        this.mesRegistro = mesRegistro;
+    public Credito(String nombre_Credito, String mes_Registro, double monto, int num_Cuotas, int cuotas_Realizadas) {
+        this.nombre_Credito = nombre_Credito;
+        this.mes_Registro = mes_Registro;
         this.monto = monto;
-        this.numCuotas = numCuotas;
-        this.cuotasRealizadas = cuotasRealizadas;
+        this.num_Cuotas = num_Cuotas;
+        this.cuotas_Realizadas = cuotas_Realizadas;
     }
 
 }

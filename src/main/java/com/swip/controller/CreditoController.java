@@ -24,7 +24,7 @@ public class CreditoController {
     @GetMapping("/creditos")
     public String inicio(Model model) {
         List<Credito> creditos = creditoService.getAllCreditos(); //Obtenemos todos los datos de creditos
-        model.addAttribute("creditos", creditos);
+        //model.addAttribute("creditos", creditos);
         return "/credito/creditos";
     }
     

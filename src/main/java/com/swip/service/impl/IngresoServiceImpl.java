@@ -19,7 +19,6 @@ public class IngresoServiceImpl implements IngresoService {
     @Transactional(readOnly = true)
     public List<Ingreso> getAllIngresos() {
         var lista = ingresoDao.findAll();
-        
         return lista;
     }
     
