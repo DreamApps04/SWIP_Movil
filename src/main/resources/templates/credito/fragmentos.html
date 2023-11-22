@@ -6,13 +6,109 @@
         <title>SWIFT by DreamApps</title>
     </head>
     <body>
-        <section th:fragment="GestionCreditos" class="home"> 
+        <section th:fragment="GestionCreditos"> 
             
-        <div class="credito">
+        <div class="container-principal">
             <!-- Sección de bloque izquierdo-->
             <div class="col-md-6">
-                
+                <form th:action="@{/credito/guardar}" th:object="${credito}" method="POST" enctype="multipart/form-data">
+                        <div class="container">
+                            <div class="card">
+                                <div class="text-center">
+                                    <h5>Gestión de Créditos</h5>
+                                </div>
+                            </div>
+                            <div class="label-doble">
+                                <div class="items-doble">
+                                    <label for="nombre_Credito" class="form-label">Seleccione el mes</label>
+                                    <select id="dropMes" name="dropMes" class="form-control form-label">
+                                        <option value="ENERO">ENERO</option>
+                                        <option value="FEBRERO">FEBRERO</option>
+                                        <option value="MARZO">MARZO</option>
+                                        <option value="ABRIL">ABRIL</option>
+                                        <option value="MAYO">MAYO</option>
+                                        <option value="JUNIO">JUNIO</option>
+                                        <option value="JULIO">JULIO</option>
+                                        <option value="AGOSTO">AGOSTO</option>
+                                        <option value="SEPTIEMBRE">SEPTIEMBRE</option>
+                                        <option value="OCTUBRE">OCTUBRE</option>
+                                        <option value="NOVIEMBRE">NOVIEMBRE</option>
+                                        <option value="DICIEMBRE">DICIEMBRE</option>
+                                    </select>                                    
+                                </div>
+                                <div class="items-doble">
+                                    <label for="nombre_Credito" class="form-label">Seleccione la categoria</label>
+                                    <select id="dropCategoria" name="dropCategoria" class="form-control form-label">
+                                        <option value="Tarjeta Credito">Tarjeta Credito</option>
+                                        <option value="Financiamiento">Financiamiento</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="monto" class="form-label">Monto del Ingreso</label>
+                                <input type="text" class="form-control" name="monto" required="true"/>
+                            </div>
+                            <div class="mb-4">
+                                <label for="descripcredito" class="form-label">Descripción de Ingreso</label>
+                                <input type="text" class="form-control" name="descripcredito" required="true" />                                
+                            </div>
+                            <div class="mb-4">
+                                
+                            </div>
+
+                            <div class="container botones">
+                                <button type="submit" class="boton guardar" name="accion" value="guardar">Guardar</button>
+                            </div>
+                        </div>
+                    </form>
             </div>
+            <!-- Sección listadoIngresos a la derecha -->
+
+                <div class="col-md-6 text-end">
+                    <div class="tablaDatos">
+                        <div th:if="${creditos != null and not creditos.empty}">       
+                            <table>
+                                <thead>
+                                    <!-- Encabezados de la tabla si es necesario -->
+                                </thead>
+                                <tbody>
+                                    <tr th:each="creditoItem : ${creditos}" th:if="${creditoItem != null}">
+                                        <td>
+                                            <!-- Contenedor para el nombre del credito -->
+                                            <div class="nombre-container">
+                                                <span th:text="${creditoItem.nombre_credito}"></span>
+                                            </div>
+                                            <!-- Contenedor para el icono y el monto -->
+                                            <div class="separacioniconomonto">
+                                                <div class="icono-container-table">
+                                                    <i th:class="${creditoItem.icono}"></i>
+                                                </div>
+                                                <!-- Contenedor para el monto -->
+                                                <div class="monto-container-table">
+                                                    <span th:text="${creditoItem.monto}"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="eliminarcredito">
+                                                <div class="descripcion-container">
+                                                    <span th:text="${creditoItem.descripcredito}"></span>
+                                                </div>
+                                                <form th:action="@{/credito/eliminar/{idIngreso}}" method="post">
+                                                    <input type="hidden" name="idIngreso" th:value="${creditoItem.idIngreso}" />
+                                                    <button type="submit" class="btn btn-danger eliminar-btn">
+                                                        <i class="fa-solid fa-xmark"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
         </div>
         </section>
     </body>

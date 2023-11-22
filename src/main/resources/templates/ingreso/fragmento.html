@@ -6,7 +6,7 @@
     </head>
     <body>  
         <section th:fragment="GestionIngresos" class="home">
-            <div class="ingresos">
+            <div class="container-principal">
                 <!-- Sección GestionIngresos a la izquierda -->
                 <div class="col-md-6">
                     <form th:action="@{/ingreso/guardar}" th:object="${ingreso}" method="POST" enctype="multipart/form-data">
@@ -54,7 +54,7 @@
                 <!-- Sección listadoIngresos a la derecha -->
 
                 <div class="col-md-6 text-end">
-                    <div class="tablaingresos">
+                    <div class="tablaDatos">
                         <div th:if="${ingresos != null and not ingresos.empty}">       
                             <table>
                                 <thead>

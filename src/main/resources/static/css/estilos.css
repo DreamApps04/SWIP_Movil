@@ -84,14 +84,16 @@ body{
 }
 
 .container{
-    margin-left: 10px;   
+    margin-left: 5px;
+    max-width: 770px;
+    max-height: 690px;
 }
 
 .form-control{
     background-color: #041023;
     color: white;
     margin-right: 3cm;
-     border-color: #3A86CB;
+    border-color: #3A86CB;
 }
 
 .container.botones{
@@ -146,12 +148,12 @@ body{
     font-size: 24px;
 }
 
-.ingresos{
+.container-principal{
     display: flex;
     justify-content: space-between;
 }
 
-.tablaingresos {
+.tablaDatos {
     overflow: auto;
     width: 80%;
     border-radius: 2rem;
@@ -272,3 +274,12 @@ body{
     font-size: 7px;
 }
 
+.label-doble{
+    display: flex; 
+    margin-bottom: 4;
+    justify-content: space-between;
+}
+
+.items-doble{
+    
+}
