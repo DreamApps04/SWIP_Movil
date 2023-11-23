@@ -7,11 +7,11 @@
     </head>
     <body>
         <section th:fragment="GestionCreditos"> 
-            
-        <div class="container-principal">
-            <!-- Sección de bloque izquierdo-->
-            <div class="col-md-6">
-                <form th:action="@{/credito/guardar}" th:object="${credito}" method="POST" enctype="multipart/form-data">
+
+            <div class="container-principal">
+                <!-- Sección de bloque izquierdo-->
+                <div class="col-md-6">
+                    <form th:action="@{/credito/guardar}" th:object="${credito}" method="POST" enctype="multipart/form-data">
                         <div class="container">
                             <div class="card">
                                 <div class="text-center">
@@ -45,71 +45,82 @@
                                 </div>
                             </div>
                             <div class="mb-4">
-                                <label for="monto" class="form-label">Monto del Ingreso</label>
-                                <input type="text" class="form-control" name="monto" required="true"/>
+                                <label for="nomGasto" class="form-label">Nombre del Gasto</label>
+                                <input type="text" class="form-control" name="nomGasto" required="true"/>
+                            </div>
+                            <div class="label-doble">
+                                <div class="items-doble">
+                                    <label for="couta" class="form-label">Cantidad de Cuotas</label>
+                                    <input type="number" class="form-control" name="couta" required="true" />                                
+                                </div>
+                                <div class="items-doble">
+                                    <label for="monto" class="form-label">Monto</label>
+                                    <input type="number" class="form-control" name="monto" required="true" />                                
+                                </div>
                             </div>
                             <div class="mb-4">
-                                <label for="descripcredito" class="form-label">Descripción de Ingreso</label>
-                                <input type="text" class="form-control" name="descripcredito" required="true" />                                
-                            </div>
-                            <div class="mb-4">
-                                
+
                             </div>
 
                             <div class="container botones">
                                 <button type="submit" class="boton guardar" name="accion" value="guardar">Guardar</button>
+                                <button type="reset" class="boton cancelar" name="accion" value="cancelar">Cancelar</button>
                             </div>
                         </div>
                     </form>
-            </div>
-            <!-- Sección listadoIngresos a la derecha -->
+
+                    <section>
+                        <div>
+                            <span><i></i> TARJETA DE CRÉDITO</span>
+                        </div>
+                        <div>
+                            <span><i></i> FINANCIAMIENTOS</span>
+                        </div>
+                    </section>
+                </div>
+                <!-- Sección listadoIngresos a la derecha -->
 
                 <div class="col-md-6 text-end">
-                    <div class="tablaDatos">
-                        <div th:if="${creditos != null and not creditos.empty}">       
-                            <table>
-                                <thead>
-                                    <!-- Encabezados de la tabla si es necesario -->
-                                </thead>
-                                <tbody>
-                                    <tr th:each="creditoItem : ${creditos}" th:if="${creditoItem != null}">
-                                        <td>
-                                            <!-- Contenedor para el nombre del credito -->
-                                            <div class="nombre-container">
-                                                <span th:text="${creditoItem.nombre_credito}"></span>
-                                            </div>
-                                            <!-- Contenedor para el icono y el monto -->
-                                            <div class="separacioniconomonto">
-                                                <div class="icono-container-table">
-                                                    <i th:class="${creditoItem.icono}"></i>
+                    <section>
+                        <div class="tablaDatos">
+                            <div th:if="${creditos != null and not creditos.empty}">       
+                                <table>
+                                    <thead>
+                                        <!-- Encabezados de la tabla si es necesario -->
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="creditoItem : ${creditos}" th:if="${creditoItem != null}">
+                                            <td>
+                                                <!-- Contenedor para el nombre del credito -->
+                                                <div class="nombre-container">
+                                                    <span th:text="${creditoItem.nombre_Credito}"></span>
                                                 </div>
+                                            </td>
+                                            <td>
                                                 <!-- Contenedor para el monto -->
                                                 <div class="monto-container-table">
                                                     <span th:text="${creditoItem.monto}"></span>
                                                 </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="eliminarcredito">
-                                                <div class="descripcion-container">
-                                                    <span th:text="${creditoItem.descripcredito}"></span>
+                                            </td>
+                                            <td>
+                                                <div class="eliminarcredito">
+                                                    <form th:action="@{/credito/eliminar/{idcredito}}" method="post">
+                                                        <input type="hidden" name="idcredito" th:value="${creditoItem.idcredito}" />
+                                                        <button type="submit" class="btn btn-danger eliminar-btn">
+                                                            <i class="fa-solid fa-xmark"></i>
+                                                        </button>
+                                                    </form>
                                                 </div>
-                                                <form th:action="@{/credito/eliminar/{idIngreso}}" method="post">
-                                                    <input type="hidden" name="idIngreso" th:value="${creditoItem.idIngreso}" />
-                                                    <button type="submit" class="btn btn-danger eliminar-btn">
-                                                        <i class="fa-solid fa-xmark"></i>
-                                                    </button>
-                                                </form>
-                                            </div>
-                                        </td>
-
-                                    </tr>
-                                </tbody>
-                            </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
+                    </section>
                 </div>
-        </div>
+            </div>
         </section>
+
     </body>
 </html>
