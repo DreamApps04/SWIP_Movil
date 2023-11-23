@@ -119,6 +119,19 @@ body{
     border-radius: 50px;
     color:white;
     border:none;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.boton-cancelar{
+    width: 100px;
+    height: 35px;
+    background-color: #FF6347;
+    border-radius: 50px;
+    color:white;
+    border:none;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .boton.editar{
@@ -283,3 +296,38 @@ body{
 .items-doble{
     
 }
+
+.container-info-box{
+    display: block;
+    align-content: center;
+    margin: 20px;
+}
+
+.credito-box span{
+    width: 60%;
+    max-width: 600px;
+    padding: 5px;
+    border-radius: 50px;
+    border: 2px solid #FF3D00;
+    text-align: justify;
+    color:white;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.finan-box span{
+    width: 60%;
+    max-width: 600px;
+    padding: 5px;
+    border-radius: 50px;
+    border: 2px solid #1A91FF;
+    text-align: justify;
+    color:white;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+
