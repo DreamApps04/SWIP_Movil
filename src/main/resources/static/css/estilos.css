@@ -18,6 +18,8 @@ body{
     padding: 10px;
     background: #000916;
     z-index: 100;
+    
+    
 }
 
 .sidebar {
@@ -33,6 +35,7 @@ body{
     display: block;
     text-decoration: none;
     padding: 15px;
+    color: white;
 }
 
 .sidebar ul, ol {
@@ -78,9 +81,9 @@ body{
     margin-top: 20px;
     color: white;
     border-radius: 50px;
-    width: 475px;
+    width: 100%;
     height: 35px;
-   
+ 
 }
 
 .container{
@@ -143,7 +146,7 @@ body{
     border:none;
 }
 
-.iconoss {
+.iconos {
     display: flex;
     justify-content: center;
 }
@@ -153,7 +156,7 @@ body{
     padding: 10px;
     border-radius: 125px;
     margin-right: 10px;
- 
+
 }
 
 .icono-container i {
@@ -177,7 +180,7 @@ body{
     display: inline-block;
 }
 
-.tablaingresos td{
+.tablaDatos td{
     overflow: hidden;
     border-radius: 1rem;
     border: 1px solid #4897E0;
@@ -224,7 +227,6 @@ body{
 .icono-container-table i {
     color: white; 
     font-size: 30px;
-    margin-left: 0px;
 }
 
 
@@ -286,7 +288,11 @@ body{
     margin: 3px;
     font-size: 7px;
 }
-
+.icono-container input:checked + label {
+    background-color: #ccc;
+    color: #ccc; 
+    border: solid #ccc;
+}
 .label-doble{
     display: flex; 
     margin-bottom: 4;
@@ -328,6 +334,3 @@ body{
     margin-top: 20px;
     margin-bottom: 20px;
 }
-
-
-
