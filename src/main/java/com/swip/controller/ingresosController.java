@@ -3,6 +3,7 @@ package com.swip.controller;
 
 import com.swip.domain.Ingreso;
 import com.swip.service.IngresoService;
+import com.swip.service.impl.FirebaseStorageServiceImpl;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,21 +34,24 @@ public class ingresosController {
         model.addAttribute("ingresos", ingresos);
         return "/ingreso/listado";
     }
-
-    
+   
 
     @GetMapping("/nuevo")
     public String ingresoNuevo(Model model) {
         model.addAttribute("ingreso", new Ingreso());
         return "/ingreso/modifica";
     }
+    
+    @Autowired
+    private FirebaseStorageServiceImpl firebaseStorageService; 
 
-@PostMapping("/guardar")
-public String ingresoGuardar(@ModelAttribute Ingreso ingreso, @RequestParam("icono") String icono) {
-    ingreso.setIcono(icono);
-    ingresoService.save(ingreso);
-    return "redirect:/ingreso/listado";
-}
+    @PostMapping("/guardar")
+    public String ingresoGuardar(@ModelAttribute Ingreso ingreso, @RequestParam("icono") String icono) {
+        ingreso.setIcono(icono);
+        ingresoService.save(ingreso);
+        return "redirect:/ingreso/listado";
+    }
+
 
 
 
