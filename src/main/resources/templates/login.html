@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!---->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>SWIP</title>
+        <meta charset="UTF-8"/>
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+        <script th:src="@{/rutinas/rutina.js}"></script>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+        <link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col bg">
+                </div>
+                <div class="col">
+                    <div class="text-end">
+                        <img src="/static/img/Swip logo Oscuro.png" width="48"  alt=""/>
+                    </div>
+                    <h2 class="fw-bold text center py-5">Bienvenido</h2>
+                    <form method="POST" th:action = "@{/Login}">
+                        <div class="mb-4">
+                            <label for="username" class="form-label">Usuario</label>
+                            <input type="text" class="form-control" name="Usuario" id="username">
+                        </div>
+                        <div class="mb-4">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="Password" class="form-control" name="password" id="password">
+                        </div>
+                        <div class="mb-4 form-check">
+                            <input type="checkbox" name="connected" class="form-check-input">
+                                <label for="connected" class="form-check-label">Mantenerme conectado</label>
+                        </div>
+                        <div class="d-grid">
+                            <button class="btn btn-primary"><span class="btn"><i class="fas- fa-sign-in-alt"></i>Ingresar</span></button>
+                        </div>
+                        <div class="my-3">
+                            <span>No tiene cuenta? <a href="#">Registrarse</a></span><br>
+                            <span><a href="#">Recuperar contraseña</a></span>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+            <div th:if="${param.error != null}">
+                <h3>Error de entrada</h3>
+            </div>
+        </div>
+        
+        
+    </body>
+</html>
+
+

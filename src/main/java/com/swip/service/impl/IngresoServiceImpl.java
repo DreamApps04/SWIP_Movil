@@ -1,4 +1,3 @@
-
 package com.swip.service.impl;
 
 import com.swip.dao.IngresoDao;
@@ -12,6 +11,7 @@ import java.util.List;
 
 @Service
 public class IngresoServiceImpl implements IngresoService {
+    
     @Autowired
     private IngresoDao ingresoDao;
 
@@ -19,7 +19,6 @@ public class IngresoServiceImpl implements IngresoService {
     @Transactional(readOnly = true)
     public List<Ingreso> getAllIngresos() {
         var lista = ingresoDao.findAll();
-        
         return lista;
     }
     

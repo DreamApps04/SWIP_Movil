@@ -51,11 +51,11 @@ DEFAULT CHARACTER SET = utf8mb4;
 /*Tabla de Credito*/
 create table swiftDB.credito (
   id_credito INT NOT NULL AUTO_INCREMENT,
-  nombreCredito VARCHAR(60) NOT NULL,
-  mesRegistro VARCHAR(150) NOT NULL,
+  nombre_Credito VARCHAR(60) NOT NULL,
+  mes_Registro VARCHAR(150) NOT NULL,
   monto DOUBLE NOT NULL,
-  numCuotas INT NOT NULL,
-  cuotasRealizadas INT NOT NULL,
+  num_Cuotas INT NOT NULL,
+  cuotas_Realizadas INT NOT NULL,
   userID INT NOT NULL,
   PRIMARY KEY (id_credito),
   FOREIGN KEY (userID) REFERENCES swiftDB.usuario(id_usuario))
@@ -105,7 +105,7 @@ INSERT INTO swiftDB.ingreso (id_ingreso, nombre_ingreso, icono, monto, descripin
 ('2','Pago Fijo', 'fas fa-briefcase', 300000, 'Planilla'),
 ('3','SP', 'fas fa-handshake', 150000, 'Servicios brindados a la comunidad');
 
-INSERT INTO swiftDB.credito (id_credito, nombreCredito, mesRegistro, monto, numCuotas, cuotasRealizadas, userID) VALUES 
+INSERT INTO swiftDB.credito (id_credito, nombre_Credito, mes_Registro, monto, num_Cuotas, cuotas_Realizadas, userID) VALUES 
 ('1', 'Taladro', 'Noviembre', 50000, 5, 1, 1),
 ('2', 'Mesa', 'Noviembre', 20000, 2, 0, 2),
 ('3', 'Tienda', 'Noviembre', 1500, 1, 1, 1);
@@ -119,6 +119,5 @@ INSERT INTO swiftDB.movimientos (id_movimiento, nombre, descripcion, monto, fech
 ('1', 'Pago fijo', 'Planilla', 500000, '2023-11-08', 1),
 ('2', 'Pago fijo', 'Planilla', 300000, '2023-11-08', 2),
 ('3', 'SP', 'Servicios brindados a comunidad', 150000, '2023-11-08', 1);
-
 
 

@@ -17,6 +17,13 @@ public class CreditoServiceImpl implements CreditoService{
 
     @Override
     @Transactional(readOnly = true)
+    public List<Credito> getAllCreditos() {
+        var lista = creditoDao.findAll();
+        return lista;
+    }
+    
+    @Override
+    @Transactional(readOnly = true)
     public List<Credito> getCreditos(long idcredito) {
         var lista = creditoDao.findAll();
         if (idcredito == 1) {

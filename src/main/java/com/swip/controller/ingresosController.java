@@ -34,7 +34,6 @@ public class ingresosController {
         model.addAttribute("ingresos", ingresos);
         return "/ingreso/listado";
     }
-   
 
     @GetMapping("/nuevo")
     public String ingresoNuevo(Model model) {
@@ -51,8 +50,6 @@ public class ingresosController {
         ingresoService.save(ingreso);
         return "redirect:/ingreso/listado";
     }
-
-
 
 
    @RequestMapping(value = "/eliminar/{idIngreso}", method = RequestMethod.POST)

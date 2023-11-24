@@ -2,11 +2,11 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head th:replace="~{layout/plantilla :: head}">
-        <title>SWIP</title>
+        <title>SWIFT by DreamApps</title>
     </head>
     <body>  
         <section th:fragment="GestionIngresos" class="home">
-            <div class="ingresos">
+            <div class="container-principal">
                 <!-- Sección GestionIngresos a la izquierda -->
                 <div class="col-md-6">
                     <form th:action="@{/ingreso/guardar}" th:object="${ingreso}" method="POST" enctype="multipart/form-data">
@@ -60,7 +60,7 @@
                 <!-- Sección listadoIngresos a la derecha -->
 
                 <div class="col-md-6 text-end">
-                    <div class="tablaingresos">
+                    <div class="tablaDatos">
                         <div th:if="${ingresos != null and not ingresos.empty}">       
                             <table>
                                 <thead>
