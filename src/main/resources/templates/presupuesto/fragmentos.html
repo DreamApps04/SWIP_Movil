@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>SWIFT by DreamApps</title>
+    </head>
+    <body>
+        <section th:fragment="Presupuesto"> 
+
+            <div class="container-principal">
+                <!-- Sección de bloque izquierdo-->
+                <div class="col-md-6">
+                    <form th:action="@{/presupuesto/guardar}" th:object="${presupuesto}" method="POST" enctype="multipart/form-data">
+                        <div class="container">
+                            <div class="card">
+                                <div class="text-center">
+                                    <h5>Gestion de Presupuesto</h5>
+                                </div>
+                            </div>
+                            <div class="label-doble">
+                                <div class="items-doble">
+                                    <label for="nombreGasto" class="form-label">Seleccione el mes</label>
+                                    <select id="dropMes" name="dropMes" class="form-control form-label">
+                                        <option value="ENERO">ENERO</option>
+                                        <option value="FEBRERO">FEBRERO</option>
+                                        <option value="MARZO">MARZO</option>
+                                        <option value="ABRIL">ABRIL</option>
+                                        <option value="MAYO">MAYO</option>
+                                        <option value="JUNIO">JUNIO</option>
+                                        <option value="JULIO">JULIO</option>
+                                        <option value="AGOSTO">AGOSTO</option>
+                                        <option value="SEPTIEMBRE">SEPTIEMBRE</option>
+                                        <option value="OCTUBRE">OCTUBRE</option>
+                                        <option value="NOVIEMBRE">NOVIEMBRE</option>
+                                        <option value="DICIEMBRE">DICIEMBRE</option>
+                                    </select>                                    
+                                </div>
+                                <div class="items-doble">
+                                    <label for="nombreGasto" class="form-label">Seleccione la categoria</label>
+                                    <select id="dropCategoria" name="dropCategoria" class="form-control form-label">
+                                        <option value="Quincena #1">Quicena #1</option>
+                                        <option value="Quincena #2">Quincena #2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="nombreGasto" class="form-label">Nombre del gasto</label>
+                                <input type="text" class="form-control" name="nombreGasto" required="true"/>
+                            </div>
+                            <div class="mb-4">
+                                <label for="descripcion" class="form-label">Descripcion del gasto</label>
+                                <input type="text" class="form-control" name="nombreGasto" required="true"/>
+                            </div>
+
+                            <div class="label-doble">
+
+                                <label for="monto" class="form-label">Monto</label>
+                                <input type="number" class="form-control" name="monto" required="true"/>                                
+
+                            </div>
+                            <div class="mb-4">
+                            </div>
+                            <div class="container botones">
+                                <button type="submit" class="boton guardar" name="accion" value="guardar">Guardar</button>
+                                <button type="reset" class="boton-cancelar" name="accion" value="cancelar">Cancelar</button>
+                            </div>
+                        </div>
+                    </form>
+                    <section class="container-info-box">
+                        <div class="saldo">
+                            <span><i></i> Saldo</span>
+                        </div>
+                        <div class="gasto">
+                            <span><i></i> Gasto</span>
+                        </div>
+                        <div class="restante">
+                            <span><i></i> Restante</span>
+                        </div>
+                    </section>
+                </div>
+                
+
+                <div class="col-md-6 text-end">
+                    <section>
+                        <div class="tablaPresupuesto">
+                            <div th:if="${presupuesto != null and not presupuesto.empty}">       
+                                <table>
+                                    <thead>
+                                        <!-- Encabezados de la tabla si es necesario -->
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="presupuestoItem : ${presupuesto}" th:if="${presupuestoItem != null}">
+                                            <td>
+                                                <!-- Contenedor para el nombre del credito -->
+                                                <div class="nombrePresupuesto">
+                                                    <span th:text="${presupuestoItem.nombreGasto}"></span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <!-- Contenedor para el monto -->
+                                                <div class="montoPresupuesto">
+                                                    <span th:text="${presupuestoItem.monto}"></span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="eliminarPresupuesto">
+                                                    <form th:action="@{/presupuesto/eliminar/{id_gasto}}" method="post">
+                                                        <input type="hidden" name="id_gasto" th:value="${creditoItem.id_gasto}" />
+                                                        <button type="submit" class="btn btn-danger eliminar-btn">
+                                                            <i class="fa-solid fa-xmark"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+    </body>
+</html>>
