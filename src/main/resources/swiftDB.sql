@@ -13,12 +13,15 @@ flush privileges;
 /*la tabla de usuarios*/
 create table swiftDB.usuario (
   id_usuario INT NOT NULL AUTO_INCREMENT,
-  email VARCHAR(30) NOT NULL,
-  nombre VARCHAR(60) NOT NULL,
-  fechaIngreso DATE NOT NULL,
-  numeroCelular varchar(40),
-  contrasena VARCHAR(100) NOT NULL,
-  activo BOOL,
+  username varchar(50) NOT NULL,
+  password varchar(512) NOT NULL,
+  nombre VARCHAR(20) NOT NULL,
+  apellidos VARCHAR(30) NOT NULL,
+  correo VARCHAR(25) NULL,
+  telefono VARCHAR(15) NULL,
+  ruta_imagen varchar(1024),
+  activo boolean,
+  fechaingreso DATE NOT NULL,
   PRIMARY KEY (id_usuario))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
@@ -88,11 +91,22 @@ create table swiftDB.movimientos (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
+/*Tabla rol*/
+create table swiftDB.rol (
+  id_rol INT NOT NULL AUTO_INCREMENT,
+  nombre varchar(20),
+  id_usuario int,
+  PRIMARY KEY (id_rol),
+  foreign key fk_rol_usuario (id_usuario) references usuario(id_usuario)
+)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
 
-INSERT INTO swiftDB.usuario (id_usuario, email, nombre, fechaIngreso, numeroCelular, contrasena, activo) VALUES 
-('1', 'j@j.com', 'joseth', CURDATE(), '8888888', '123456789', true),
-('2', 'a@a.com', 'Angelo', CURDATE(), '8888888', '123456789', true),
-('3', 'c@c.com', 'carlos', CURDATE(), '8888888', '123456789', false);
+
+INSERT INTO swiftDB.usuario (id_usuario, username, password, nombre, apellidos, correo, telefono, ruta_imagen, activo, fechaingreso) VALUES
+('1', 'admin', '$2a$10$P1.w58XvnaYQUQgZUCk4aO/RTRl8EValluCqB3S2VMLTbRt.tlre.', 'Javier', 'Madrigal Pozo', 'javier@dreamapps.com', '123456789', 'https://www.bing.com/images/search?view=detailV2&ccid=RzJh1B%2bx&id=97FB829005F9D8DB4838522C8E1D84A190D991A6&thid=OIP.RzJh1B-xpinTNPOGsZmDiAHaF7&mediaurl=https%3a%2f%2ficon-library.com%2fimages%2fusername-icon%2fusername-icon-24.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.473261d41fb1a629d334f386b1998388%3frik%3dppHZkKGEHY4sUg%26pid%3dImgRaw%26r%3d0&exph=1024&expw=1280&q=username+1+icon&simid=607992869516498751&FORM=IRPRST&ck=B464C0EFCA7391D44764B7C46CC70FE6&selectedIndex=13&ajaxhist=0&ajaxserp=0', true, '2023-11-29' ),
+('2', 'Gabriel', '$2a$10$KFEF4klwPpeX5/ji5ivpG.Oo/a.wOTjKz96V9uSgP8R49MBycH9V6', 'Gabriel', 'BARAHONA WALKER', 'gabriel@dreamapps.com', '987654321', 'https://www.bing.com/images/search?view=detailV2&ccid=RzJh1B%2bx&id=97FB829005F9D8DB4838522C8E1D84A190D991A6&thid=OIP.RzJh1B-xpinTNPOGsZmDiAHaF7&mediaurl=https%3a%2f%2ficon-library.com%2fimages%2fusername-icon%2fusername-icon-24.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.473261d41fb1a629d334f386b1998388%3frik%3dppHZkKGEHY4sUg%26pid%3dImgRaw%26r%3d0&exph=1024&expw=1280&q=username+1+icon&simid=607992869516498751&FORM=IRPRST&ck=B464C0EFCA7391D44764B7C46CC70FE6&selectedIndex=13&ajaxhist=0&ajaxserp=0', true, '2023-11-29'),
+('3', 'Joseth', '$2a$10$KFEF4klwPpeX5/ji5ivpG.Oo/a.wOTjKz96V9uSgP8R49MBycH9V6', 'Joseth', 'ARAYA GONZALEZ', 'joseth@dreamapps.com', '1122334455', 'https://www.bing.com/images/search?view=detailV2&ccid=RzJh1B%2bx&id=97FB829005F9D8DB4838522C8E1D84A190D991A6&thid=OIP.RzJh1B-xpinTNPOGsZmDiAHaF7&mediaurl=https%3a%2f%2ficon-library.com%2fimages%2fusername-icon%2fusername-icon-24.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.473261d41fb1a629d334f386b1998388%3frik%3dppHZkKGEHY4sUg%26pid%3dImgRaw%26r%3d0&exph=1024&expw=1280&q=username+1+icon&simid=607992869516498751&FORM=IRPRST&ck=B464C0EFCA7391D44764B7C46CC70FE6&selectedIndex=13&ajaxhist=0&ajaxserp=0', false, '2023-11-29');
 
 
 INSERT INTO swiftDB.gastos (id_gasto, nombreGasto, descripcion, monto, mesIngreso, numQuincena, userID) VALUES 
@@ -119,5 +133,8 @@ INSERT INTO swiftDB.movimientos (id_movimiento, nombre, descripcion, monto, fech
 ('1', 'Pago fijo', 'Planilla', 500000, '2023-11-08', 1),
 ('2', 'Pago fijo', 'Planilla', 300000, '2023-11-08', 2),
 ('3', 'SP', 'Servicios brindados a comunidad', 150000, '2023-11-08', 1);
+
+INSERT INTO swiftDB.rol (id_rol, nombre, id_usuario) VALUES
+ (1,'ROLE_ADMIN',1), (2,'ROLE_USUARIO',1)
 
 

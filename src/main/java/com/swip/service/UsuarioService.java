@@ -4,16 +4,30 @@ import com.swip.domain.Usuario;
 import java.util.List;
 
 public interface UsuarioService {
-    // Se obtiene un listado de productos en un List
-    public List<Usuario> getUsuarios(boolean activos);
     
-   // Se obtiene un Usuario, a partir del id de un producto
-    public Usuario getUsuario(Usuario producto);
+    // Se obtiene un listado de usuarios en un List
+    public List<Usuario> getUsuarios();
     
-    // Se inserta un nuevo producto si el id del producto esta vacío
-    // Se actualiza un producto si el id del producto NO esta vacío
-    public void save(Usuario producto);
+    // Se obtiene un Usuario, a partir del id de un usuario
+    public Usuario getUsuario(Usuario usuario);
     
-    // Se elimina el producto que tiene el id pasado por parámetro
-    public void delete(Usuario producto);
+    // Se obtiene un Usuario, a partir del username de un usuario
+    public Usuario getUsuarioPorUsername(String username);
+
+    // Se obtiene un Usuario, a partir del username y el password de un usuario
+    public Usuario getUsuarioPorUsernameYPassword(String username, String password);
+    
+    // Se obtiene un Usuario, a partir del username y el password de un usuario
+    public Usuario getUsuarioPorUsernameOCorreo(String username, String correo);
+    
+    // Se valida si existe un Usuario considerando el username
+    public boolean existeUsuarioPorUsernameOCorreo(String username, String correo);
+    
+    // Se inserta un nuevo usuario si el id del usuario esta vacío
+    // Se actualiza un usuario si el id del usuario NO esta vacío
+    public void save(Usuario usuario,boolean crearRolUser);
+    
+    // Se elimina el usuario que tiene el id pasado por parámetro
+    public void delete(Usuario usuario);
+    
 }

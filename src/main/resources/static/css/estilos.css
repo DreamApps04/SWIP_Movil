@@ -334,3 +334,46 @@ body{
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+.card-header{
+    background-color: #3A86CB;
+    text-align: center;
+}
+
+.card-login{
+    background-color: #072842;
+}
+
+.botoningresar{
+    width: 115px;
+    height: 35px;
+    background-color: #87CEFA;
+    border-radius: 50px;
+    color: white;
+    border: none;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+
+.botonregistrar {
+    width: 115px;
+    height: 35px;
+    background-color: #F4BB57;
+    border-radius: 50px;
+    color: white;
+    border: none;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+.botonrecordar{
+     width: 115px;
+    height: 35px;
+    background-color: #DED135;
+    border-radius: 50px;
+    color: white;
+    border: none;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}

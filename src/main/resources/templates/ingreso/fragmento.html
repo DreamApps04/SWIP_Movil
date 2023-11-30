@@ -84,7 +84,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>
+                                        <td sec:authorize="hasRole('ROLE_ADMIN')">
                                             <div class="eliminaringreso">
                                                 <div class="descripcion-container">
                                                     <span th:text="${ingresoItem.descripingreso}"></span>

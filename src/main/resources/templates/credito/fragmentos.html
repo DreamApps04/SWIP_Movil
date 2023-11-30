@@ -99,7 +99,7 @@
                                                     <span th:text="${creditoItem.monto}"></span>
                                                 </div>
                                             </td>
-                                            <td>
+                                            <td sec:authorize="hasRole('ROLE_ADMIN')">
                                                 <div class="eliminarcredito">
                                                     <form th:action="@{/credito/eliminar/{idcredito}}" method="post">
                                                         <input type="hidden" name="idcredito" th:value="${creditoItem.idcredito}" />

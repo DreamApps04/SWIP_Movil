@@ -1,51 +1,60 @@
 package com.swip;
 
-import java.util.Locale;
-import org.springframework.context.MessageSource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.support.ResourceBundleMessageSource;
-import org.springframework.web.servlet.LocaleResolver;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
-import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+
 
 @Configuration
-public class ProjectConfig implements WebMvcConfigurer {
-    /* Los siguientes métodos son para incorporar el tema de internacionalización en el proyecto */
-    
-    /* localeResolver se utiliza para crear una sesión de cambio de idioma*/
+public class ProjectConfig implements WebMvcConfigurer {    
+   /* Los siguiente mÃ©todos son para implementar el tema de seguridad dentro del proyecto */
+ @Override
+public void addViewControllers(ViewControllerRegistry registry) {             
+    registry.addViewController("/login").setViewName("login");
+    registry.addViewController("/index").setViewName("index");
+    registry.addViewController("/").setViewName("redirect:/login");  // Redirige a /login
+    registry.addViewController("/registro/nuevo").setViewName("/registro/nuevo");
+}
+
     @Bean
-    public LocaleResolver localeResolver() {
-        var slr = new SessionLocaleResolver();
-        slr.setDefaultLocale(Locale.getDefault());
-        slr.setLocaleAttributeName("session.current.locale");
-        slr.setTimeZoneAttributeName("session.current.timezone");
-        return slr;
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .authorizeHttpRequests((request) -> request
+                .requestMatchers("/","/index","/errores/**",               
+                "/registro/**","/js/**","/webjars/**", "/css/**")
+                        .permitAll()
+                .requestMatchers(
+                "/ingreso/nuevo", "/ingreso/guardar",
+                        "/ingreso/eliminar", "/credito/nuevo",
+                        "/credito/guardar", "/credito/eliminar",
+                        "/usuario/nuevo","/usuario/guardar",
+                        "/usuario/modificar/**","/usuario/eliminar/**"
+                ).hasRole("ADMIN")
+                .requestMatchers(
+                        "/ingreso/listado",
+                        "/credito/creditos",
+                        "/usuario/listado"
+                ).hasAnyRole("ADMIN", "USUARIO")
+                )
+                .formLogin((form) -> form
+                .loginPage("/login").permitAll()
+                .defaultSuccessUrl("/index", true))
+                .logout((logout) -> logout.permitAll());
+        return http.build();
     }
-
-    /* localeChangeInterceptor se utiliza para crear un interceptor de cambio de idioma*/
-    @Bean
-    public LocaleChangeInterceptor localeChangeInterceptor() {
-        var lci = new LocaleChangeInterceptor();
-        lci.setParamName("lang");
-        return lci;
-    }
-
-    @Override
-    public void addInterceptors(InterceptorRegistry registro) {
-        registro.addInterceptor(localeChangeInterceptor());
-    }
+  
+    @Autowired
+    private UserDetailsService userDetailsService;
     
-    //Poder accesar a los messages.properties 
-    @Bean("messageSource")
-    public MessageSource messageSource(){ 
-      ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource(); 
-      messageSource.setBasenames("messages"); 
-      messageSource.setDefaultEncoding("UTF-8"); 
-      return messageSource;
+    @Autowired
+    public void configurerGlobal(AuthenticationManagerBuilder build) throws Exception {
+        build.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
-    
-
 }
