@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import lombok.Data;
@@ -22,17 +24,23 @@ public class Credito implements Serializable{
     @Column(name="id_credito")
     private long idcredito;
     private String nombre_Credito;
+    private String tipo_Credito;
     private String mes_Registro;
     private double monto;
     private int num_Cuotas;
     private int cuotas_Realizadas;
-    private int userID;
     
+    /*
+    @ManyToOne
+    @JoinColumn(name="id_usuario")
+    Usuario usuario;
+    */
     public Credito(){
     }
 
-    public Credito(String nombre_Credito, String mes_Registro, double monto, int num_Cuotas, int cuotas_Realizadas) {
+    public Credito(String nombre_Credito, String tipo_Credito, String mes_Registro, double monto, int num_Cuotas, int cuotas_Realizadas) {
         this.nombre_Credito = nombre_Credito;
+        this.tipo_Credito = tipo_Credito;
         this.mes_Registro = mes_Registro;
         this.monto = monto;
         this.num_Cuotas = num_Cuotas;

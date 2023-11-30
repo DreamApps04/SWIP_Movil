@@ -13,15 +13,15 @@
                 <div class="col-md-6">
                     <form th:action="@{/presupuesto/guardar}" th:object="${presupuesto}" method="POST" enctype="multipart/form-data">
                         <div class="container">
-                            <div class="card">
+                            <div class="card titulos-pagina">
                                 <div class="text-center">
                                     <h5>Gestion de Presupuesto</h5>
                                 </div>
                             </div>
                             <div class="label-doble">
                                 <div class="items-doble">
-                                    <label for="nombreGasto" class="form-label">Seleccione el mes</label>
-                                    <select id="dropMes" name="dropMes" class="form-control form-label">
+                                    <label for="mes_Ingreso" class="form-label">Seleccione el mes</label>
+                                    <select id="mes_Ingreso" name="mes_Ingreso" class="form-control form-label">
                                         <option value="ENERO">ENERO</option>
                                         <option value="FEBRERO">FEBRERO</option>
                                         <option value="MARZO">MARZO</option>
@@ -37,27 +37,24 @@
                                     </select>                                    
                                 </div>
                                 <div class="items-doble">
-                                    <label for="nombreGasto" class="form-label">Seleccione la categoria</label>
-                                    <select id="dropCategoria" name="dropCategoria" class="form-control form-label">
-                                        <option value="Quincena #1">Quicena #1</option>
-                                        <option value="Quincena #2">Quincena #2</option>
+                                    <label for="num_Quincena" class="form-label">Seleccione la Quicena</label>
+                                    <select id="num_Quincena" name="num_Quincena" class="form-control form-label">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="mb-4">
-                                <label for="nombreGasto" class="form-label">Nombre del gasto</label>
-                                <input type="text" class="form-control" name="nombreGasto" required="true"/>
+                                <label for="nombre_Gasto" class="form-label">Nombre del gasto</label>
+                                <input type="text" class="form-control" name="nombre_Gasto" required="true"/>
                             </div>
                             <div class="mb-4">
                                 <label for="descripcion" class="form-label">Descripcion del gasto</label>
-                                <input type="text" class="form-control" name="nombreGasto" required="true"/>
+                                <input type="text" class="form-control" name="descripcion" required="true"/>
                             </div>
-
-                            <div class="label-doble">
-
+                            <div class="mb-4">
                                 <label for="monto" class="form-label">Monto</label>
-                                <input type="number" class="form-control" name="monto" required="true"/>                                
-
+                                <input type="number" class="form-control" name="monto" required="true"/> 
                             </div>
                             <div class="mb-4">
                             </div>
@@ -79,22 +76,25 @@
                         </div>
                     </section>
                 </div>
-                
 
                 <div class="col-md-6 text-end">
                     <section>
-                        <div class="tablaPresupuesto">
+                        <div class="tablaDatos">
                             <div th:if="${presupuesto != null and not presupuesto.empty}">       
                                 <table>
                                     <thead>
-                                        <!-- Encabezados de la tabla si es necesario -->
+                                        <!-- Encabezados de la tabla -->
+                                        <tr class="encabezado-tabla">
+                                            <th class="tabla-izq">Presupuesto</th>
+                                            <th class="tabla-der">Valor</th>
+                                        </tr>
                                     </thead>
                                     <tbody>
                                         <tr th:each="presupuestoItem : ${presupuesto}" th:if="${presupuestoItem != null}">
                                             <td>
                                                 <!-- Contenedor para el nombre del credito -->
                                                 <div class="nombrePresupuesto">
-                                                    <span th:text="${presupuestoItem.nombreGasto}"></span>
+                                                    <span th:text="${presupuestoItem.nombre_Gasto}"></span>
                                                 </div>
                                             </td>
                                             <td>
@@ -102,17 +102,17 @@
                                                 <div class="montoPresupuesto">
                                                     <span th:text="${presupuestoItem.monto}"></span>
                                                 </div>
-                                            </td>
+                                            </td><!-- comment 
                                             <td>
                                                 <div class="eliminarPresupuesto">
                                                     <form th:action="@{/presupuesto/eliminar/{id_gasto}}" method="post">
-                                                        <input type="hidden" name="id_gasto" th:value="${creditoItem.id_gasto}" />
+                                                        <input type="hidden" name="id_gasto" th:value="${presupuestoItem.id_gasto}" />
                                                         <button type="submit" class="btn btn-danger eliminar-btn">
                                                             <i class="fa-solid fa-xmark"></i>
                                                         </button>
                                                     </form>
                                                 </div>
-                                            </td>
+                                            </td-->
                                         </tr>
                                     </tbody>
                                 </table>
@@ -124,4 +124,4 @@
         </section>
 
     </body>
-</html>>
+</html>

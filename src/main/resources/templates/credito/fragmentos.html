@@ -13,7 +13,7 @@
                 <div class="col-md-6">
                     <form th:action="@{/credito/guardar}" th:object="${credito}" method="POST" enctype="multipart/form-data">
                         <div class="container">
-                            <div class="card">
+                            <div class="card titulos-pagina">
                                 <div class="text-center">
                                     <h5>Gestión de Créditos</h5>
                                 </div>
@@ -21,7 +21,7 @@
                             <div class="label-doble">
                                 <div class="items-doble">
                                     <label for="nombre_Credito" class="form-label">Seleccione el mes</label>
-                                    <select id="dropMes" name="dropMes" class="form-control form-label">
+                                    <select id="mes_Registro" name="mes_Registro" class="form-control form-label">
                                         <option value="ENERO">ENERO</option>
                                         <option value="FEBRERO">FEBRERO</option>
                                         <option value="MARZO">MARZO</option>
@@ -37,25 +37,25 @@
                                     </select>                                    
                                 </div>
                                 <div class="items-doble">
-                                    <label for="nombre_Credito" class="form-label">Seleccione la categoria</label>
-                                    <select id="dropCategoria" name="dropCategoria" class="form-control form-label">
-                                        <option value="Tarjeta Credito">Tarjeta Credito</option>
+                                    <label for="categoria_Credito" class="form-label">Seleccione la categoria</label>
+                                    <select id="tipo_Credito" name="tipo_Credito" class="form-control form-label">
+                                        <option value="TarjetaCredito">Tarjeta Credito</option>
                                         <option value="Financiamiento">Financiamiento</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="mb-4">
-                                <label for="nomGasto" class="form-label">Nombre del Gasto</label>
-                                <input type="text" class="form-control" name="nomGasto" required="true"/>
+                                <label for="nombre_Credito" class="form-label">Nombre del Gasto</label>
+                                <input type="text" class="form-control" name="nombre_Credito" required="true"/>
                             </div>
                             <div class="label-doble">
                                 <div class="items-doble">
-                                    <label for="couta" class="form-label">Cantidad de Cuotas</label>
-                                    <input type="number" class="form-control" name="couta" required="true" />                                
+                                    <label for="num_Cuotas" class="form-label">Cantidad de Cuotas</label>
+                                    <input type="number" class="form-control" name="num_Cuotas" required="true" />                                
                                 </div>
                                 <div class="items-doble">
                                     <label for="monto" class="form-label">Monto</label>
-                                    <input type="number" class="form-control" name="monto" required="true" />                                
+                                    <input type="number" class="form-control" name="monto" required="true" /> 
                                 </div>
                             </div>
                             <div class="mb-4">
@@ -66,7 +66,7 @@
                             </div>
                         </div>
                     </form>
-                    <section class="container-info-box">
+                    <section class="container-info-box ">
                         <div class="credito-box">
                             <span><i></i> TARJETA DE CRÉDITO</span>
                         </div>
@@ -83,7 +83,11 @@
                             <div th:if="${creditos != null and not creditos.empty}">       
                                 <table>
                                     <thead>
-                                        <!-- Encabezados de la tabla si es necesario -->
+                                        <!-- Encabezados de la tabla -->
+                                        <tr class="encabezado-tabla">
+                                            <th class="tabla-izq">Tarjeta Crédito</th>
+                                            <th class="tabla-der">Valor</th>
+                                        </tr>
                                     </thead>
                                     <tbody>
                                         <tr th:each="creditoItem : ${creditos}" th:if="${creditoItem != null}">
@@ -97,9 +101,7 @@
                                                 <!-- Contenedor para el monto -->
                                                 <div class="monto-container-table">
                                                     <span th:text="${creditoItem.monto}"></span>
-                                                </div>
-                                            </td>
-                                            <td>
+                                                </div><!-- comment 
                                                 <div class="eliminarcredito">
                                                     <form th:action="@{/credito/eliminar/{idcredito}}" method="post">
                                                         <input type="hidden" name="idcredito" th:value="${creditoItem.idcredito}" />
@@ -107,7 +109,7 @@
                                                             <i class="fa-solid fa-xmark"></i>
                                                         </button>
                                                     </form>
-                                                </div>
+                                                </div-->
                                             </td>
                                         </tr>
                                     </tbody>

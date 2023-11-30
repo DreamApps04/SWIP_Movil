@@ -4,10 +4,8 @@
  */
 package com.swip.controller;
 
-import com.swip.domain.Credito;
 import com.swip.domain.Ingreso;
 import com.swip.domain.Presupuesto;
-import com.swip.service.IngresoService;
 import com.swip.service.PresupuestoService;
 import com.swip.service.impl.FirebaseStorageServiceImpl;
 import java.util.List;
@@ -33,7 +31,7 @@ public class PresupuestoController {
     @GetMapping("/listado")
     public String inicio(Model model) {
         List<Presupuesto> presupuesto = presupuestoService.getAllPresupuesto();
-        model.addAttribute("presupuestos", presupuesto);
+        model.addAttribute("presupuesto", presupuesto);
         return "/presupuesto/listado";
     }
 

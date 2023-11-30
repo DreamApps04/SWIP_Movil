@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.swip.domain;
 
 import jakarta.persistence.Column;
@@ -23,24 +19,22 @@ public class Presupuesto implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_gasto")
     private long id_gasto;
-    private String nombreGasto;
+    private String nombre_Gasto;
     private String descripcion;
     private double monto;
-    private String mesIngreso;
-    private int numQuincena;
-    private int userId;
+    private String mes_Ingreso;
+    private int num_Quincena;
 
     public Presupuesto() {
     }
 
-    public Presupuesto(long id_gasto, String nombreGasto, String descripcion, double monto, String mesIngreso, int numQuincena, int userId) {
+    public Presupuesto(long id_gasto, String nombre_Gasto, String descripcion, double monto, String mes_Ingreso, int num_Quincena) {
         this.id_gasto = id_gasto;
-        this.nombreGasto = nombreGasto;
+        this.nombre_Gasto = nombre_Gasto;
         this.descripcion = descripcion;
         this.monto = monto;
-        this.mesIngreso = mesIngreso;
-        this.numQuincena = numQuincena;
-        this.userId = userId;
+        this.mes_Ingreso = mes_Ingreso;
+        this.num_Quincena = num_Quincena;
     }
     
     
