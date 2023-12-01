@@ -135,6 +135,6 @@ INSERT INTO swiftDB.movimientos (id_movimiento, nombre, descripcion, monto, fech
 ('3', 'SP', 'Servicios brindados a comunidad', 150000, '2023-11-08', 1);
 
 INSERT INTO swiftDB.rol (id_rol, nombre, id_usuario) VALUES
- (1,'ROLE_ADMIN',1), (2,'ROLE_USUARIO',1)
+ (1,'ROLE_ADMIN',1), (2,'ROLE_VENDEDOR',1), (3,'ROLE_USER',1)
 
 

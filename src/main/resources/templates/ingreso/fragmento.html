@@ -50,7 +50,7 @@
                                 </div>
                             </div>
 
-                            <div class="container botones">
+                            <div class="container botones" sec:authorize="hasRole('ROLE_ADMIN')">
                                 <button type="submit" class="boton guardar" name="accion" value="guardar">Guardar</button>
                             </div>
                         </div>
@@ -84,7 +84,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td sec:authorize="hasRole('ROLE_ADMIN')">
+                                        <td>
                                             <div class="eliminaringreso">
                                                 <div class="descripcion-container">
                                                     <span th:text="${ingresoItem.descripingreso}"></span>

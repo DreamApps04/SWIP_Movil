@@ -49,7 +49,7 @@ public class ingresosController {
     }
 
 
-   @RequestMapping(value = "/eliminar/{idIngreso}", method = RequestMethod.POST)
+   @RequestMapping("/eliminar/{idIngreso}")
 public String eliminarIngreso(@ModelAttribute("ingreso") Ingreso ingreso) {
     ingresoService.delete(ingreso);
     return "redirect:/ingreso/listado";
