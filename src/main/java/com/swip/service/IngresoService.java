@@ -14,5 +14,4 @@ public interface IngresoService {
     
     public void delete(Ingreso ingreso);
       
-
 }
