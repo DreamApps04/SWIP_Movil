@@ -100,7 +100,10 @@
                                             <td>
                                                 <!-- Contenedor para el monto -->
                                                 <div class="monto-container-table">
-                                                    <span th:text="${creditoItem.monto}"></span>
+                                                    <span th:text="${creditoItem.monto}"></span
+                                                </div>
+                                            </td>
+                                            <td sec:authorize="hasRole('ROLE_ADMIN')">=======
                                                 </div><!-- comment 
                                                 <div class="eliminarcredito">
                                                     <form th:action="@{/credito/eliminar/{idcredito}}" method="post">

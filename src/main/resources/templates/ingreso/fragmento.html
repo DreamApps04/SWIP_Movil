@@ -50,7 +50,7 @@
                                 </div>
                             </div>
 
-                            <div class="container botones">
+                            <div class="container botones" sec:authorize="hasRole('ROLE_ADMIN')">
                                 <button type="submit" class="boton guardar" name="accion" value="guardar">Guardar</button>
                                 <button type="reset" class="boton-cancelar" name="accion" value="cancelar">Cancelar</button>
                             </div>

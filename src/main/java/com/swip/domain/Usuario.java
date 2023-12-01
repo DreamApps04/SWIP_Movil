@@ -1,13 +1,6 @@
 package com.swip.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -15,24 +8,28 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="usuario")
-public class Usuario implements Serializable{
+@Table(name = "usuario")
+
+public class Usuario implements Serializable {
     private static final long serialVersionUID = 1L;
-    
-    @Id //Id del usuario
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //Se generan valores relacionados a la DB
-    @Column(name="id_usuario")
-    private long idusuario;
-    private String email;
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column (name = "id_usuario")
+    private Long idUsuario;
+    private String username;
+    private String password;
     private String nombre;
-    private Date fecha_Ingreso;
-    private String numero_Celular;
-    private String contrasena;
+    private String apellidos;
+    private String correo;
+    private String telefono;
+    private String rutaImagen;
     private boolean activo;
+    private String fechaingreso;
     
     @OneToMany
-    @JoinColumn(name="id_usuario", updatable = false)
-    List<Credito> creditos;
+    @JoinColumn(name="id_usuario")
+    List<Rol> roles;
     
     public Usuario(){
     }
