@@ -25,9 +25,9 @@
                         <img class="logo" src="static/img/SwipLogo.png" alt="SWIP"/>
                     </div>
                 </header>
-                <div class="menu">LesterFinal
+                <div class="menu">
                     <ul class="menu-links" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_USUARIO')">
-                        <li class="nav-link"><a href="#"><i class="fa-solid fa-house" style="color: #ffffff;"></i>&nbsp;&nbsp;INICIO</a></li>
+                        <li class="nav-link"><a th:href="@{/}"><i class="fa-solid fa-house" style="color: #ffffff;"></i>&nbsp;&nbsp;INICIO</a></li>
                         <li class="nav-link"><a th:href="@{/ingreso/listado}"><i class="fa-solid fa-wallet" style="color: #ffffff;"></i>&nbsp;&nbsp;INGRESO</a></li>
                         <li class="nav-link"><a th:href="@{/presupuesto/listado}"><i class="fa-solid fa-money-bills" style="color: #ffffff;"></i>&nbsp;&nbsp;PRESUPUESTO</a></li>
                         <li class="nav-link"><a th:href="@{/credito/creditos}"><i class="fa-solid fa-credit-card" style="color: #ffffff;"></i>&nbsp;&nbsp;CRÉDITO</a></li>

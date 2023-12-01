@@ -33,9 +33,11 @@ public void addViewControllers(ViewControllerRegistry registry) {
                 .requestMatchers(
                 "/ingreso/nuevo", "/ingreso/guardar",
                         "/ingreso/eliminar/{idIngreso}", "/credito/nuevo",
+                        "/credito/creditos", "/credito/modifica/**",
                         "/credito/guardar", "/credito/eliminar/{idcredito}",
                         "/usuario/nuevo","/usuario/guardar",
-                        "/usuario/modificar/**","/usuario/eliminar/**"
+                        "/usuario/modificar/**","/usuario/eliminar/**",
+                        "/presupuesto/listado", "/presupuesto/eliminar**"
                 ).hasRole("ADMIN")
                 .requestMatchers(
                         "/ingreso/listado",
