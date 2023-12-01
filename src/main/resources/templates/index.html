@@ -2,28 +2,39 @@
 <!---->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-    <head th:fragment="head">
-        <title>SWIP</title>
-        <meta charset="UTF-8"/>
-        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
-        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
-        <script th:src="@{/rutinas/rutina.js}"></script>
-        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-        <link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css"/>
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>SWIFT by DreamApps</title>
     </head>
     <body>
-        <header th:replace="~{layout/plantilla :: header}"/>  
-        <div class="container-principal">
-            <div class="col-md-6">
-                <div class="card titulos-pagina">
-                    <div class="text-center">
-                        <h5>Bienvenido de vuelta</h5>
+        <header th:replace="~{layout/plantilla :: header}"/>
+        <section class="home">
+            <div class="container-principal">
+                <div class="col-md-6">
+                    <div class="titulos-pagina">
+                        <div class="text-center titulo-home">
+                            <h3 class="text-titulo">Bienvenido de vuelta</h3>
+                        </div>
                     </div>
+                    <!-- Sección de Saldo Ingreso y Gasto -->
+                    <section class="box-valores">
+                        <div class="sec-box-valores">
+                            <p><i class="fa-solid fa-money-bill fa-lg"></i> SALDO</p>
+                            <p>1000</p>
+                        </div>
+                        <div class="sec-box-valores">
+                            <p><i class="fa-solid fa-money-bills fa-lg"></i> INGRESO</p>
+                            <p>1000</p>
+                        </div>
+                        <div class="sec-box-valores">
+                            <p><i class="fa-solid fa-money-bill-transfer fa-lg"></i> GASTO</p>
+                            <p>1000</p>
+                        </div>
+                    </section>
+
                 </div>
             </div>
-        </div>
+        </section>
+
     </body>
 </html>
 
