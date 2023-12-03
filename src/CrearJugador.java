@@ -1,4 +1,5 @@
 
+import implementacion.de.uso.pokemon.Jugador;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -35,15 +36,15 @@ public class CrearJugador extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        password = new javax.swing.JTextField();
+        apellido = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
-        Usuario = new javax.swing.JTextField();
+        nombre = new javax.swing.JTextField();
         CrearJugador = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        password1 = new javax.swing.JTextField();
+        usuario = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        password2 = new javax.swing.JTextField();
+        fechaNacimiento = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -70,9 +71,9 @@ public class CrearJugador extends javax.swing.JFrame {
         jLabel5.setText("Nombre:");
         jLabel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black));
 
-        password.addActionListener(new java.awt.event.ActionListener() {
+        apellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordActionPerformed(evt);
+                apellidoActionPerformed(evt);
             }
         });
 
@@ -82,9 +83,9 @@ public class CrearJugador extends javax.swing.JFrame {
             }
         });
 
-        Usuario.addActionListener(new java.awt.event.ActionListener() {
+        nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UsuarioActionPerformed(evt);
+                nombreActionPerformed(evt);
             }
         });
 
@@ -105,9 +106,9 @@ public class CrearJugador extends javax.swing.JFrame {
         jLabel8.setText("Apellido:");
         jLabel8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black));
 
-        password1.addActionListener(new java.awt.event.ActionListener() {
+        usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                password1ActionPerformed(evt);
+                usuarioActionPerformed(evt);
             }
         });
 
@@ -115,9 +116,9 @@ public class CrearJugador extends javax.swing.JFrame {
         jLabel9.setText("Usuario: ");
         jLabel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black));
 
-        password2.addActionListener(new java.awt.event.ActionListener() {
+        fechaNacimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                password2ActionPerformed(evt);
+                fechaNacimientoActionPerformed(evt);
             }
         });
 
@@ -133,7 +134,7 @@ public class CrearJugador extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(67, 67, 67)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
@@ -143,13 +144,13 @@ public class CrearJugador extends javax.swing.JFrame {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(15, 15, 15)
-                                        .addComponent(Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(password1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(password2, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addComponent(fechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(212, 212, 212)
                         .addComponent(CrearJugador)))
@@ -167,20 +168,20 @@ public class CrearJugador extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(password2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(password1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addComponent(CrearJugador)
                 .addContainerGap(49, Short.MAX_VALUE))
@@ -210,7 +211,7 @@ public class CrearJugador extends javax.swing.JFrame {
 
     private void apellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apellidoActionPerformed
 
-            
+            return;
         
     }//GEN-LAST:event_apellidoActionPerformed
 
@@ -219,39 +220,42 @@ public class CrearJugador extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
-        
+        return;
     }//GEN-LAST:event_nombreActionPerformed
 
     private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
         // TODO add your handling code here:
+        return;
+        
     }//GEN-LAST:event_usuarioActionPerformed
 
     private void fechaNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaNacimientoActionPerformed
         // TODO add your handling code here:
+        return;
     }//GEN-LAST:event_fechaNacimientoActionPerformed
 
     private void CrearJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearJugadorActionPerformed
       ArrayList<Jugador> listaJug = new ArrayList();
       Jugador jug = new Jugador();
-        if (nombre.getText() != null && apellido.getText() != null && usuario.getText() != null &&  fecha.getText() != null) {
+        if (nombre.getText() != null && apellido.getText() != null && usuario.getText() != null &&  fechaNacimiento.getText() != null) {
             jug.setNombre(nombre.getText());
             jug.setApellido(apellido.getText());
             jug.setUsuario(usuario.getText());
-            jug.setFechaNac(fecha.getText());
+            jug.setFechaNac(fechaNacimiento.getText());
             listaJug.add(jug);
             JOptionPane.showMessageDialog(null, "Fue ingresado el jugador con exito");
             Pk newframe= new Pk();
-           
+//           
            newframe.setVisible(true);  
            
            this.dispose();
             
-        }else if ("".equals(nombre.getText()) && apellido.getText().isEmpty()&& usuario.getText().isEmpty() &&  fecha.getText().isEmpty()){
+        }else {
             JOptionPane.showMessageDialog(null,"Por favor no deje espacios en blanco");
             nombre.setText("");
             apellido.setText("");
             usuario.setText("");
-            fecha.setText("");
+            fechaNacimiento.setText("");
         }
 
             
@@ -297,7 +301,8 @@ public class CrearJugador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CrearJugador;
-    private javax.swing.JTextField Usuario;
+    private javax.swing.JTextField apellido;
+    private javax.swing.JTextField fechaNacimiento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
@@ -306,8 +311,7 @@ public class CrearJugador extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField password;
-    private javax.swing.JTextField password1;
-    private javax.swing.JTextField password2;
+    private javax.swing.JTextField nombre;
+    private javax.swing.JTextField usuario;
     // End of variables declaration//GEN-END:variables
 }
