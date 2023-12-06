@@ -1,6 +1,8 @@
 
 package implementacion.de.uso.pokemon;
 
+import javax.swing.JOptionPane;
+
 
 public class Cola {
     private Nodo inicioCola;
@@ -25,10 +27,9 @@ public class Cola {
     }
     
     //Metodo para insertar a la Cola
-    public void Insertar (int informacion){
-        Nodo nuevoPokemon = new Nodo();
-        nuevoPokemon.informacion = informacion;
-        nuevoPokemon.siguiente = null;
+    public void Insertar (Pokemon informacion){
+        Nodo nuevoPokemon = new Nodo (informacion);
+        
         
         if (ColaVacia()) {
             inicioCola = nuevoPokemon;
@@ -51,12 +52,23 @@ public class Cola {
         String cadena [] = Cola.split(" ");
         
         for (int i = cadena.length - 1; i >=0; i--) {
-            ColaInvertida += " ";
+            ColaInvertida += cadena[i] + " ";
             
         }
         System.out.println(ColaInvertida);
         Cola = " ";
         
+    }
+    public int longitudCola() {
+        Nodo recorrido = inicioCola;
+        int longitud = 0;
+
+        while (recorrido != null) {
+            longitud++;
+            recorrido = recorrido.siguiente;
+        }
+
+        return longitud;
     }
    
 }
