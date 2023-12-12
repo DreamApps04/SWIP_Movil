@@ -1,0 +1,119 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>SWIFT by DreamApps</title>
+    </head>
+    <body>  
+        <section th:fragment="GestionIngresos" class="home">
+            <div class="container-principal">
+                <!-- Sección GestionIngresos a la izquierda -->
+                <div class="col-md-6">
+                    <form th:action="@{/ingreso/guardar}" th:object="${ingreso}" method="POST" enctype="multipart/form-data">
+                        <div class="container">
+                            <div class="card titulos-pagina">
+                                <div class="text-center">
+                                    <h5>Gestión de Ingresos</h5>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="nombre_ingreso" class="form-label">Nombre de Ingreso</label>
+                                <input type="text" class="form-control" name="nombre_ingreso" required="true"/>
+                            </div>
+                            <div class="mb-4">
+                                <label for="monto" class="form-label">Monto del Ingreso</label>
+                                <input type="text" class="form-control" name="monto" required="true"/>
+                            </div>
+                            <div class="mb-4">
+                                <label for="descripingreso" class="form-label">Descripción de Ingreso</label>
+                                <input type="text" class="form-control" name="descripingreso" required="true" />                                
+                            </div>
+                            <div class="mb-4">
+                                
+                                <div class="iconos">
+                                    <div class="icono-container">
+                                        <input type="radio" id="icono1" name="icono" class="input-icono" value="fa-handshake" required="true" style="display: none;"/>
+                                        <label for="icono1"><i class="fas fa-handshake"></i></label>
+                                    </div>
+                                    <div class="icono-container">
+                                        <input type="radio" id="icono2" name="icono" class="input-icono" value="fa-briefcase" required="true"  style="display: none;"/>
+                                        <label for="icono2"><i class="fas fa-briefcase"></i></label>
+                                    </div>
+                                    <div class="icono-container">
+                                        <input type="radio" id="icono3" name="icono" class="input-icono" value="fa-sack-dollar" required="true"  style="display: none;"/>
+                                        <label for="icono3"><i class="fas fa-sack-dollar"></i></label>
+                                    </div>
+                                    <div class="icono-container">
+                                        <input type="radio" id="icono4" name="icono" class="input-icono" value="fa-solid fa-people-group" required="true"  style="display: none;"/>
+                                        <label for="icono4"><i class="fa-solid fa-people-group"></i></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="container botones" sec:authorize="hasRole('ROLE_ADMIN')">
+                                <button type="submit" class="boton guardar" name="accion" value="guardar">Guardar</button>
+                                <button type="reset" class="boton-cancelar" name="accion" value="cancelar">Cancelar</button>
+                            </div>
+                        </div>
+                    </form> 
+                    
+                </div>
+                <!-- Sección listadoIngresos a la derecha -->
+
+                <div class="col-md-6 text-end">
+                    <div class="tablaDatos">
+                        <div th:if="${ingresos != null and not ingresos.empty}">       
+                            <table>
+                                <thead>
+                                    <!-- Encabezados de la tabla -->
+                                        <tr class="encabezado-tabla">
+                                            <th class="tabla-izq">Ingresos</th>
+                                            <th class="tabla-der">Valor</th>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="ingresoItem : ${ingresos}" th:if="${ingresoItem != null}">
+                                        <td>
+                                            <!-- Contenedor para el nombre del ingreso -->
+                                            <div class="nombre-container">
+                                                <span th:text="${ingresoItem.nombre_ingreso}"></span>
+                                            </div>
+                                            <!-- Contenedor para el icono y el monto -->
+                                            <div class="separacioniconomonto">
+                                                <div class="icono-container-table">
+                                                    <i th:class="'fas ' + ${ingresoItem.icono}"></i>
+                                                </div>
+                                                <!-- Contenedor para el monto -->
+                                                <div class="monto-container-table">
+                                                    <span th:text="${ingresoItem.monto}"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="eliminaringreso">
+                                                <div class="descripcion-container">
+                                                    <span th:text="${ingresoItem.descripingreso}"></span>
+                                                </div>
+                                                <form th:action="@{/ingreso/eliminar/{idIngreso}}" method="post">
+                                                    <input type="hidden" name="idIngreso" th:value="${ingresoItem.idIngreso}" />
+                                                    <button type="submit" class="btn btn-danger eliminar-btn">
+                                                        <i class="fa-solid fa-xmark"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>  
+        </section>
+
+    </body>
+</html>
+

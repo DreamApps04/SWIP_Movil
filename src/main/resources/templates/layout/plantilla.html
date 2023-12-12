@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!---->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    
+    <head th:fragment="head">
+        <title>SWIP by DreamApps</title>
+        <meta charset="UTF-8"/>
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/JS/Iconos.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+        <script src="https://kit.fontawesome.com/02425c13ba.js" crossorigin="anonymous"></script>
+        <link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css"/>
+        <link rel="icon" type="image/png" href="@{/img/}" />
+    </head>
+    <body>
+        <header th:fragment="header" class="header">
+            <nav class="sidebar">
+                <header>
+                    <div>
+                        <img class="logo" src="static/img/SwipLogo.png" alt="SWIP"/>
+                    </div>
+                </header>
+                <div class="menu">
+                    <ul class="menu-links">
+                        <li class="nav-link"><a th:href="@{/}"><i class="fa-solid fa-house" style="color: #ffffff;"></i>&nbsp;&nbsp;INICIO</a></li>
+                        <li class="nav-link"><a th:href="@{/ingreso/listado}"><i class="fa-solid fa-wallet" style="color: #ffffff;"></i>&nbsp;&nbsp;INGRESO</a></li>
+                        <li class="nav-link"><a th:href="@{/presupuesto/listado}"><i class="fa-solid fa-money-bills" style="color: #ffffff;"></i>&nbsp;&nbsp;PRESUPUESTO</a></li>
+                        <li class="nav-link"><a th:href="@{/credito/creditos}"><i class="fa-solid fa-credit-card" style="color: #ffffff;"></i>&nbsp;&nbsp;CRÉDITO</a></li>
+                        <li class="nav-link"><a th:href="@{/ahorro/listado}"><i class="fa-solid fa-piggy-bank" style="color: #ffffff;"></i>&nbsp;&nbsp;AHORRO</a></li>
+                        <li class="nav-link"><a href="#"><i class="fa-solid fa-file-invoice" style="color: #ffffff;"></i>&nbsp;&nbsp;REPORTE</a></li>
+                        <li class="nav-item dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
+                            <a class="nav-link dropdown-toggle" 
+                               data-bs-toggle="dropdown" 
+                               href="#" 
+                               role="button" 
+                               aria-expanded="false">Administracion</a>
+                            <ul class="dropdown-menu dropdown-menu-dark" sec:authorize="hasRole('ROLE_ADMIN')">
+                                <li><a class="dropdown-item" th:href="@{/usuario/listado}">Usuarios</a></li>
+                            </ul>
+                        </li> 
+                    </ul>
+                    
+                       <ul class="navbar-nav" sec:authorize="!isAuthenticated()">
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/login}">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        
+                        <ul class="navbar-nav" sec:authorize="isAuthenticated()">
+                            <li class="nav-item text-white my-auto">
+                                <img th:src="@{${session.usuarioImagen}}"
+                                     alt="Imágen del usuario"
+                                     height="40"
+                                     class="rounded-circle"/>
+                                <span sec:authentication="name">Javi</span>
+                            </li>
+                            <li class="nav-item my-auto">
+                                <form method="post" th:action="@{/logout}">
+                                    <button class="btn btn-dark">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                    </button>
+                                    
+                                </form>
+                            </li>
+                        </ul>
+                </div>
+                <div>
+                    <h6 class="bottom-content">DREAM APPS</h6>
+                </div>
+            </nav>
+        </header>
+    </body>
+</html>

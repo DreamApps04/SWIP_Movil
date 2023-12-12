@@ -1,0 +1,119 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>SWIFT by DreamApps</title>
+    </head>
+    <body>  
+        <section th:fragment="GestionAhorros" class="home">
+            <div class="container-principal">
+                <!-- Sección GestionAhorros a la izquierda -->
+                <div class="col-md-6">
+                    <form th:action="@{/ahorro/guardar}" th:object="${ahorro}" method="POST" enctype="multipart/form-data">
+                        <div class="container">
+                            <div class="card titulos-pagina">
+                                <div class="text-center">
+                                    <h5>Gestión de Ahorros</h5>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="nombre_ahorro" class="form-label">Nombre de Ahorro</label>
+                                <input type="text" class="form-control" name="nombre_ahorro" required="true"/>
+                            </div>
+                            <div class="mb-4">
+                                <label for="monto" class="form-label">Monto del Ahorro</label>
+                                <input type="text" class="form-control" name="monto" required="true"/>
+                            </div>
+                            <div class="mb-4">
+                                <label for="descripahorro" class="form-label">Descripción de Ahorro</label>
+                                <input type="text" class="form-control" name="descripahorro" required="true" />                                
+                            </div>
+                            <div class="mb-4">
+                                
+                                <div class="iconos">
+                                    <div class="icono-container">
+                                        <input type="radio" id="icono1" name="icono" class="input-icono" value="fa-handshake" required="true" style="display: none;"/>
+                                        <label for="icono1"><i class="fas fa-handshake"></i></label>
+                                    </div>
+                                    <div class="icono-container">
+                                        <input type="radio" id="icono2" name="icono" class="input-icono" value="fa-briefcase" required="true"  style="display: none;"/>
+                                        <label for="icono2"><i class="fas fa-briefcase"></i></label>
+                                    </div>
+                                    <div class="icono-container">
+                                        <input type="radio" id="icono3" name="icono" class="input-icono" value="fa-sack-dollar" required="true"  style="display: none;"/>
+                                        <label for="icono3"><i class="fas fa-sack-dollar"></i></label>
+                                    </div>
+                                    <div class="icono-container">
+                                        <input type="radio" id="icono4" name="icono" class="input-icono" value="fa-solid fa-people-group" required="true"  style="display: none;"/>
+                                        <label for="icono4"><i class="fa-solid fa-people-group"></i></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="container botones" sec:authorize="hasRole('ROLE_ADMIN')">
+                                <button type="submit" class="boton guardar" name="accion" value="guardar">Guardar</button>
+                                <button type="reset" class="boton-cancelar" name="accion" value="cancelar">Cancelar</button>
+                            </div>
+                        </div>
+                    </form> 
+                    
+                </div>
+                <!-- Sección listadoAhorros a la derecha -->
+
+                <div class="col-md-6 text-end">
+                    <div class="tablaDatos">
+                        <div th:if="${ahorros != null and not ahorros.empty}">       
+                            <table>
+                                <thead>
+                                    <!-- Encabezados de la tabla -->
+                                        <tr class="encabezado-tabla">
+                                            <th class="tabla-izq">Ahorros</th>
+                                            <th class="tabla-der">Valor</th>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="ahorroItem : ${ahorros}" th:if="${ahorroItem != null}">
+                                        <td>
+                                            <!-- Contenedor para el nombre del ahorro -->
+                                            <div class="nombre-container">
+                                                <span th:text="${ahorroItem.nombre_ahorro}"></span>
+                                            </div>
+                                            <!-- Contenedor para el icono y el monto -->
+                                            <div class="separacioniconomonto">
+                                                <div class="icono-container-table">
+                                                    <i th:class="'fas ' + ${ahorroItem.icono}"></i>
+                                                </div>
+                                                <!-- Contenedor para el monto -->
+                                                <div class="monto-container-table">
+                                                    <span th:text="${ahorroItem.monto}"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="eliminarahorro">
+                                                <div class="descripcion-container">
+                                                    <span th:text="${ahorroItem.descripahorro}"></span>
+                                                </div>
+                                                <form th:action="@{/ahorro/eliminar/{idAhorro}}" method="post">
+                                                    <input type="hidden" name="idAhorro" th:value="${ahorroItem.idAhorro}" />
+                                                    <button type="submit" class="btn btn-danger eliminar-btn">
+                                                        <i class="fa-solid fa-xmark"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>  
+        </section>
+
+    </body>
+</html>
+
