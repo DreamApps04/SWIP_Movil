@@ -144,7 +144,7 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
-        
+        System.exit(0);
     }//GEN-LAST:event_SalirActionPerformed
 
     private void PokedexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PokedexActionPerformed
