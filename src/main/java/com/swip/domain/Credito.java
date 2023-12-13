@@ -30,11 +30,6 @@ public class Credito implements Serializable{
     private int num_Cuotas;
     private int cuotas_Realizadas;
     
-    /*
-    @ManyToOne
-    @JoinColumn(name="id_usuario")
-    Usuario usuario;
-    */
     public Credito(){
     }
 

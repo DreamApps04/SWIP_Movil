@@ -7,6 +7,7 @@
 body{
     background-color: #041023;
     color: #ffffff;
+    margin-bottom: 20px;
 }
 
 .sidebar {
@@ -34,7 +35,7 @@ body{
 .sidebar li a{
     display: block;
     text-decoration: none;
-    padding: 15px;
+    padding: 13px;
     color: white;
 }
 
@@ -61,10 +62,10 @@ body{
 
 .home{
     position: absolute;
-    top: 0;
+    top: 15px;
     left: 210px;
-    height: 100vh;
-    width: calc(100% - 210px);
+    height: 85vh;
+    width: calc(100% - 240px);
 }
 
 .titleBar{
@@ -83,6 +84,7 @@ body{
     border-radius: 50px;
     width: 100%;
     height: 35px;
+    
 }
 
 .titulo-home{
@@ -206,6 +208,7 @@ body{
     margin-top: 25px;
     margin-right: 15%;
     display: inline-block;
+    
 }
 
 .tablaDatos td{
@@ -295,6 +298,18 @@ body{
 }
 
 .eliminaringreso {
+    position: relative;
+}
+
+.eliminarahorro{
+    position: relative;
+}
+
+.eliminarPresupuesto{
+    position: relative;
+}
+
+.eliminarcredito{
     position: relative;
 }
 
@@ -423,4 +438,149 @@ body{
 .tabla-der{
     text-align: right;
     padding-right: 15px;
+}
+
+.botonregresar {
+    width: 90px;
+    height: 30px;
+    background-color: #F4BB57;
+    border-radius: 50px;
+    color: white;
+    border: none;
+    margin-top: 25px;
+    margin-left: 3px;
+}
+
+.card-registro{
+background-color: #3A86CB;
+    margin-top: 20px;
+    color: white;
+    border-radius: 50px;
+    width: 100%;
+    height: 35px;
+}
+
+.card-registro h4 {
+text-align: center;
+}
+
+.botonactivacion{
+    width: 115px;
+    height: 35px;
+    background-color: #87CEFA;
+    border-radius: 50px;
+    color: white;
+    border: none;
+    margin-bottom: 45px;
+    margin-left: 15px; 
+}
+
+.tablausuarios{
+    margin-left: 333px;
+    text-align: center;
+}
+
+.containeragregar{
+    margin-left: 400px;
+    margin-top: 20px;
+}
+
+.botonregresarusuario{
+    width: 125px;
+    height: 30px;
+    background-color: #F4BB57;
+    border-radius: 50px;
+    color: white;
+    border: none;
+    margin-top: 25px;
+    margin-left: 3px;
+}
+
+.card-totalusuarios{
+    background-color: #3A86CB;
+    margin-top: 20px;
+    color: white;
+    border-radius: 50px;
+    width: 150px;
+    height: 60px;
+    margin-right: 70px;
+    text-align: center;
+}
+
+.modal-body{
+    background-color: #041023;
+}
+
+.bg-custom {
+    background-color: #3A86CB;
+}
+
+.modal-footer{
+    background-color: #3A86CB;
+}
+
+.editarusuariobotones{
+    margin-top: 35px;
+}
+
+
+.card-headerusuarios{
+    text-align: center;
+    background-color: #3A86CB;
+    margin-top: 20px;
+    color: white;
+    border-radius: 50px;
+    width: 100%;
+    height: 35px;  
+}
+
+.tablausuarios2{
+    padding-bottom: 40px;
+    text-align: center;
+}
+
+.card_reporte {
+    --bs-card-spacer-y: 1rem;
+    --bs-card-spacer-x: 1rem;
+    --bs-card-title-spacer-y: 0.5rem;
+    --bs-card-title-color: ;
+    --bs-card-subtitle-color: ;
+    --bs-card-border-width: var(--bs-border-width);
+    --bs-card-border-color: var(--bs-border-color-translucent);
+    --bs-card-border-radius: var(--bs-border-radius);
+    --bs-card-box-shadow: ;
+    --bs-card-inner-border-radius: calc(var(--bs-border-radius) - (var(--bs-border-width)));
+    --bs-card-cap-padding-y: 0.5rem;
+    --bs-card-cap-padding-x: 1rem;
+    --bs-card-cap-bg: rgba(var(--bs-body-color-rgb), 0.03);
+    --bs-card-cap-color: ;
+    --bs-card-height: ;
+    --bs-card-color: ;
+    --bs-card-bg: var(--bs-body-bg);
+    --bs-card-img-overlay-padding: 1rem;
+    --bs-card-group-margin: 0.75rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: var(--bs-card-height);
+    color: var(--bs-body-color);
+    word-wrap: break-word;
+    background-clip: border-box;
+    border: var(--bs-card-border-width) solid var(--bs-card-border-color);
+    border-radius: var(--bs-card-border-radius);
+}
+
+.card-header:first-child {
+    border-radius: var(--bs-card-inner-border-radius) var(--bs-card-inner-border-radius) 0 0;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+}
+
+.row-cols-4>* {
+    flex: 0 0 auto;
+    width: 24%;
 }

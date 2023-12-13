@@ -33,17 +33,9 @@ public class Usuario implements Serializable {
     private String telefono;
     private String rutaImagen;
     private boolean activo;
-    private String fechaingreso;
     
     @OneToMany
     @JoinColumn(name="id_usuario")
     List<Rol> roles;
     
-    public Usuario(){
-    }
-    
-    public Usuario(String nombre, boolean activo) {
-        this.nombre = nombre;
-        this.activo = activo;
-    }
 }

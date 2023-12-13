@@ -37,11 +37,4 @@ public class Presupuesto implements Serializable {
         this.num_Quincena = num_Quincena;
     }
     
-    
-
-    
-    
-    
-    
-    
 }

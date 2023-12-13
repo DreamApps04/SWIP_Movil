@@ -1,4 +1,3 @@
-
 package com.swip.domain;
 
 import jakarta.persistence.Column;
@@ -12,32 +11,28 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="ahorros")
+@Table(name = "ahorro")
 public class Ahorro implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_ahorro")
-    
-    private long idUsuario;
-    private String nombreAhorro;
-    private String descripcion;
-    private double monto;
+    @Column(name = "id_ahorro")
+    private long idAhorro;
+    private String nombre_ahorro;
     private String icono;
-    private long userId;
+    private String descripahorro;
+    private double monto;
 
     public Ahorro() {
     }
 
-    public Ahorro(long idUsuario, String nombreAhorro, String descripcion, double monto, String icono, long userId) {
-        this.idUsuario = idUsuario;
-        this.nombreAhorro = nombreAhorro;
-        this.descripcion = descripcion;
-        this.monto = monto;
+     public Ahorro(String nombre_ahorro, String icono, double monto, String descripahorro) {
+        this.nombre_ahorro = nombre_ahorro;
         this.icono = icono;
-        this.userId = userId;
+        this.monto = monto;
+        this.descripahorro = descripahorro;
     }
     
-    
 }
+

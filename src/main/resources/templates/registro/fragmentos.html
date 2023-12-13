@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head th:replace="~{layout/plantilla :: head}">
-        <title>TechShop</title>
+        <title>SWIP</title>
     </head>
     <body>
         <!-- 1 Fragmento que se utiliza en la página para regresar -->
@@ -12,8 +12,8 @@
                 <div class="col-md-3">
                     <section>
                         <div class="col-md-4 d-grid">
-                            <a th:href="@{/login}" class="btn btn-primary">
-                                <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
+                            <a th:href="@{/login}" class="botonregresar">
+                                <i class="fas fa-arrow-left"></i> Regresar
                             </a>
                         </div>
                     </section>
@@ -21,8 +21,8 @@
             <div class="row py-2 justify-content-center">
                 <div class="col-md-3">
                     <form method="POST" th:action="@{/registro/crearUsuario}" th:object="${usuario}" class="was-validated">
-                        <div class="card">
-                            <div class="card-header">
+                        <div class="card-registro">
+                            <div>
                                 <h4>[[#{usuario.agregar}]]</h4>
                             </div>
                             <div class="card-body">
@@ -42,7 +42,7 @@
                                            name="correo" th:field="*{correo}"
                                            required="true"/></div></div>
                             <div class="card-footer text-end">                                                
-                                <button type="submit" class="btn btn-success">
+                                <button type="submit" class="botonactivacion">
                                     <i class="fas fa-envelope"></i> [[#{usuario.activacion}]]
                                 </button></div>
                         </div>
@@ -103,7 +103,7 @@
                 <div class="col-md-3">
                     <section>
                         <div class="col-md-4 d-grid">
-                            <a th:href="@{/login}" class="btn btn-primary">
+                            <a th:href="@{/login}" class="botonregresar">
                                 <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
                             </a>
                         </div>
@@ -115,8 +115,8 @@
                     <form method="POST"
                           th:action="@{/registro/recordarUsuario}" th:object="${usuario}"
                           class="was-validated">
-                        <div class="card">
-                            <div class="card-header">
+                        <div class="card-registro">
+                            <div>
                                 <h4>[[#{registro.recordar.us}]]</h4>
                             </div>
                             <div class="card-body">

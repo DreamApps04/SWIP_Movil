@@ -14,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/usuario")
-
 public class usuarioController {
 
     @Autowired

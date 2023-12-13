@@ -5,28 +5,28 @@
         <title>SWIFT by DreamApps</title>
     </head>
     <body>  
-        <section th:fragment="GestionIngresos" class="home">
+        <section th:fragment="GestionAhorros" class="home">
             <div class="container-principal">
-                <!-- Sección GestionIngresos a la izquierda -->
+                <!-- Sección GestionAhorros a la izquierda -->
                 <div class="col-md-6">
-                    <form th:action="@{/ingreso/guardar}" th:object="${ingreso}" method="POST" enctype="multipart/form-data">
+                    <form th:action="@{/ahorro/guardar}" th:object="${ahorro}" method="POST" enctype="multipart/form-data">
                         <div class="container">
                             <div class="card titulos-pagina">
                                 <div class="text-center">
-                                    <h5>Gestión de Ingresos</h5>
+                                    <h5>Gestión de Ahorros</h5>
                                 </div>
                             </div>
                             <div class="mb-4">
-                                <label for="nombre_ingreso" class="form-label">Nombre de Ingreso</label>
-                                <input type="text" class="form-control" name="nombre_ingreso" required="true"/>
+                                <label for="nombre_ahorro" class="form-label">Nombre de Ahorro</label>
+                                <input type="text" class="form-control" name="nombre_ahorro" required="true"/>
                             </div>
                             <div class="mb-4">
-                                <label for="monto" class="form-label">Monto del Ingreso</label>
+                                <label for="monto" class="form-label">Monto del Ahorro</label>
                                 <input type="text" class="form-control" name="monto" required="true"/>
                             </div>
                             <div class="mb-4">
-                                <label for="descripingreso" class="form-label">Descripción de Ingreso</label>
-                                <input type="text" class="form-control" name="descripingreso" required="true" />                                
+                                <label for="descripahorro" class="form-label">Descripción de Ahorro</label>
+                                <input type="text" class="form-control" name="descripahorro" required="true" />                                
                             </div>
                             <div class="mb-4">
                                 
@@ -58,58 +58,62 @@
                     </form> 
                     
                 </div>
-                <!-- Sección listadoIngresos a la derecha -->
+                <!-- Sección listadoAhorros a la derecha -->
 
                 <div class="col-md-6 text-end">
                     <div class="tablaDatos">
-                        <div th:if="${ingresos != null and not ingresos.empty}">       
+                        <div th:if="${ahorros != null and not ahorros.empty}">       
                             <table>
                                 <thead>
                                     <!-- Encabezados de la tabla -->
                                         <tr class="encabezado-tabla">
-                                            <th class="tabla-izq">Ingresos</th>
+                                            <th class="tabla-izq">Ahorros</th>
                                             <th class="tabla-der">Valor</th>
                                         </tr>
                                 </thead>
                                 <tbody>
-                                    <tr th:each="ingresoItem : ${ingresos}" th:if="${ingresoItem != null}">
+                                    <tr th:each="ahorroItem : ${ahorros}" th:if="${ahorroItem != null}">
                                         <td>
-                                            <!-- Contenedor para el nombre del ingreso -->
+                                            <!-- Contenedor para el nombre del ahorro -->
                                             <div class="nombre-container">
-                                                <span th:text="${ingresoItem.nombre_ingreso}"></span>
+                                                <span th:text="${ahorroItem.nombre_ahorro}"></span>
                                             </div>
                                             <!-- Contenedor para el icono y el monto -->
                                             <div class="separacioniconomonto">
                                                 <div class="icono-container-table">
-                                                    <i th:class="'fas ' + ${ingresoItem.icono}"></i>
+                                                    <i th:class="'fas ' + ${ahorroItem.icono}"></i>
                                                 </div>
                                                 <!-- Contenedor para el monto -->
                                                 <div class="monto-container-table">
-                                                    <span th:text="${ingresoItem.monto}"></span>
+                                                    <span th:text="${ahorroItem.monto}"></span>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="eliminaringreso">
+                                            <div class="eliminarahorro">
                                                 <div class="descripcion-container">
-                                                    <span th:text="${ingresoItem.descripingreso}"></span>
+                                                    <span th:text="${ahorroItem.descripahorro}"></span>
                                                 </div>
-                                                <form th:action="@{/ingreso/eliminar/{idIngreso}}" method="post">
-                                                    <input type="hidden" name="idIngreso" th:value="${ingresoItem.idIngreso}" />
+                                                <form th:action="@{/ahorro/eliminar/{idAhorro}}" method="post">
+                                                    <input type="hidden" name="idAhorro" th:value="${ahorroItem.idAhorro}" />
                                                     <button type="submit" class="btn btn-danger eliminar-btn">
                                                         <i class="fa-solid fa-xmark"></i>
                                                     </button>
                                                 </form>
                                             </div>
                                         </td>
+
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
+
+
             </div>  
         </section>
+
     </body>
 </html>
 

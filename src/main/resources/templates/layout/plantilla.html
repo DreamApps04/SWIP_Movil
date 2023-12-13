@@ -15,7 +15,7 @@
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
         <script src="https://kit.fontawesome.com/02425c13ba.js" crossorigin="anonymous"></script>
         <link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css"/>
-
+        <link rel="icon" type="image/png" href="@{/img/}" />
     </head>
     <body>
         <header th:fragment="header" class="header">
@@ -26,13 +26,23 @@
                     </div>
                 </header>
                 <div class="menu">
-                    <ul class="menu-links" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_USUARIO')">
-                        <li class="nav-link"><a th:href="@{/}"><i class="fa-solid fa-house" style="color: #ffffff;"></i>&nbsp;&nbsp;INICIO</a></li>
+                    <ul class="menu-links">
+                        <li class="nav-link"><a th:href="@{/index}"><i class="fa-solid fa-house" style="color: #ffffff;"></i>&nbsp;&nbsp;INICIO</a></li>
                         <li class="nav-link"><a th:href="@{/ingreso/listado}"><i class="fa-solid fa-wallet" style="color: #ffffff;"></i>&nbsp;&nbsp;INGRESO</a></li>
                         <li class="nav-link"><a th:href="@{/presupuesto/listado}"><i class="fa-solid fa-money-bills" style="color: #ffffff;"></i>&nbsp;&nbsp;PRESUPUESTO</a></li>
                         <li class="nav-link"><a th:href="@{/credito/creditos}"><i class="fa-solid fa-credit-card" style="color: #ffffff;"></i>&nbsp;&nbsp;CRÉDITO</a></li>
-                        <li class="nav-link"><a href="#"><i class="fa-solid fa-piggy-bank" style="color: #ffffff;"></i>&nbsp;&nbsp;AHORRO</a></li>
-                        <li class="nav-link"><a href="#"><i class="fa-solid fa-file-invoice" style="color: #ffffff;"></i>&nbsp;&nbsp;REPORTE</a></li>
+                        <li class="nav-link"><a th:href="@{/ahorro/listado}"><i class="fa-solid fa-piggy-bank" style="color: #ffffff;"></i>&nbsp;&nbsp;AHORRO</a></li>
+                        <li class="nav-link"><a th:href="@{/reportes/principal}"><i class="fa-solid fa-file-invoice" style="color: #ffffff;"></i>&nbsp;&nbsp;REPORTE</a></li>
+                        <li class="nav-item dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
+                            <a class="nav-link dropdown-toggle" 
+                               data-bs-toggle="dropdown" 
+                               href="#" 
+                               role="button" 
+                               aria-expanded="false">Administracion</a>
+                            <ul class="dropdown-menu dropdown-menu-dark" sec:authorize="hasRole('ROLE_ADMIN')">
+                                <li><a class="dropdown-item" th:href="@{/usuario/listado}">Usuarios</a></li>
+                            </ul>
+                        </li> 
                     </ul>
                     
                        <ul class="navbar-nav" sec:authorize="!isAuthenticated()">

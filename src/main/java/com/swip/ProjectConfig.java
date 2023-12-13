@@ -28,22 +28,20 @@ public void addViewControllers(ViewControllerRegistry registry) {
         http
                 .authorizeHttpRequests((request) -> request
                 .requestMatchers("/","/index","/errores/**",               
-                "/registro/**","/js/**","/webjars/**", "/css/**")
-                        .permitAll()
-                .requestMatchers(
-                "/ingreso/nuevo", "/ingreso/guardar",
-                        "/ingreso/eliminar/{idIngreso}", "/credito/nuevo",
+                "/registro/**","/js/**","/webjars/**", "/css/**",
+                    "/ingreso/nuevo", "/ingreso/guardar","/ingreso/**",
+                        "/ingreso/eliminar/{idIngreso}","/ahorro/nuevo", "/ahorro/guardar",
+                        "/ahorro/listado","/ahorro/**",
+                        "/ahorro/eliminar/{idAhorro}", "/credito/nuevo",
                         "/credito/creditos", "/credito/modifica/**",
                         "/credito/guardar", "/credito/eliminar/{idcredito}",
-                        "/usuario/nuevo","/usuario/guardar",
-                        "/usuario/modificar/**","/usuario/eliminar/**",
-                        "/presupuesto/listado", "/presupuesto/eliminar**"
-                ).hasRole("ADMIN")
+                        "/presupuesto/listado", "/presupuesto/eliminar**", 
+                        "/presupuesto/guardar", "/reportes/**", "/reportes/Ingresos**")
+                        .permitAll()
                 .requestMatchers(
-                        "/ingreso/listado",
-                        "/credito/creditos",
-                        "/usuario/listado"
-                ).hasAnyRole("ADMIN", "USUARIO")
+                        "/usuario/nuevo","/usuario/guardar",
+                        "/usuario/modificar/**","/usuario/eliminar/**"
+                ).hasRole("ADMIN")
                 )
                 .formLogin((form) -> form
                 .loginPage("/login").permitAll()

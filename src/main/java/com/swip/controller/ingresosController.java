@@ -1,4 +1,3 @@
-
 package com.swip.controller;
 
 import com.swip.domain.Ingreso;

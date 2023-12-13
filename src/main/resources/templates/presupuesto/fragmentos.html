@@ -99,20 +99,18 @@
                                             </td>
                                             <td>
                                                 <!-- Contenedor para el monto -->
+                                                <div class="eliminarPresupuesto">
                                                 <div class="montoPresupuesto">
                                                     <span th:text="${presupuestoItem.monto}"></span>
                                                 </div>
-                                            </td><!-- comment 
-                                            <td>
-                                                <div class="eliminarPresupuesto">
-                                                    <form th:action="@{/presupuesto/eliminar/{id_gasto}}" method="post">
+                                                <form th:action="@{/presupuesto/eliminar/{id_gasto}}" method="post">
                                                         <input type="hidden" name="id_gasto" th:value="${presupuestoItem.id_gasto}" />
                                                         <button type="submit" class="btn btn-danger eliminar-btn">
                                                             <i class="fa-solid fa-xmark"></i>
                                                         </button>
                                                     </form>
                                                 </div>
-                                            </td-->
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -122,6 +120,5 @@
                 </div>
             </div>
         </section>
-
     </body>
 </html>
