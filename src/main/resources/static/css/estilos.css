@@ -19,8 +19,6 @@ body{
     padding: 10px;
     background: #000916;
     z-index: 100;
-    
-    
 }
 
 .sidebar {
@@ -102,17 +100,23 @@ body{
 
 .box-valores{
     display: flex;
-    
+    margin: 15px;
+    padding-left: 15px;
+    justify-content: space-around;
 }
 
-.sec-banox-valores{
-    border: 2px solid #4897E0;
+.sec-box-valores{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 5px; 
     margin: 30px;
     color: white;
-    border-radius: 30px;
     width: 100%;
-    height: 125px;
-    text-align: center;
+    height: 100px;
+    border-radius: 30px;
+    border: 2px solid #87CEFA;
 }
 
 
@@ -583,4 +587,188 @@ text-align: center;
 .row-cols-4>* {
     flex: 0 0 auto;
     width: 24%;
+}
+
+.tblHome{
+    margin-left: 70px; 
+}
+
+.caja-padre{
+    width: 85%;
+    min-width: 200px;
+    position: fixed;
+    padding-left: 20px; 
+}
+
+.con{
+    width: 50%;
+}
+
+h2{
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.listGastos:not(:last-child){
+    margin-bottom: 20px
+}
+
+.detalles{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.barras{
+    position: relative;
+    border: 1px solid cyan;
+    border-radius: 20px;
+}
+
+.barras div{
+    position: relative;
+    width: 0;
+    height: 8px;
+    border-radius: 10px;
+    background-color: cyan;
+}
+
+/* variables*/
+:root {
+    --valorInicial: 1000000;
+    --valorEntrada: 600000;
+    --ene: calc(var(--valorEntrada) / var(--valorInicial)*100%);
+}
+
+/* ANIMACION */
+
+#ene-barras{
+    animation: ene-bar 2s forwards;
+}
+
+@keyframes ene-bar{
+    100%{
+        width: var(--ene);
+    }
+}
+
+#feb-barras{
+    animation: feb-bar 2s forwards;
+}
+
+@keyframes feb-bar{
+    100%{
+        width: 70%;
+    }
+}
+
+#mar-barras{
+    animation: mar-bar 2s forwards;
+}
+
+
+@keyframes mar-bar{
+    100%{
+        width: 70%;
+    }
+}
+
+#abr-barras{
+    animation: abr-bar 2s forwards;
+}
+
+
+@keyframes abr-bar{
+    100%{
+        width: 70%;
+    }
+}
+
+#may-barras{
+    animation: may-bar 2s forwards;
+}
+
+
+@keyframes may-bar{
+    100%{
+        width: 70%;
+    }
+}
+
+#jun-barras{
+    animation: jun-bar 2s forwards;
+}
+
+
+@keyframes jun-bar{
+    100%{
+        width: 50%;
+    }
+}
+
+#jul-barras{
+    animation: jul-bar 2s forwards;
+}
+
+
+@keyframes jul-bar{
+    100%{
+        width: 70%;
+    }
+}
+
+#ago-barras{
+    animation: ago-bar 2s forwards;
+}
+
+
+@keyframes ago-bar{
+    100%{
+        width: 70%;
+    }
+}
+
+#sep-barras{
+    animation: sep-bar 2s forwards;
+}
+
+
+@keyframes sep-bar{
+    100%{
+        width: 70%;
+    }
+}
+
+#oct-barras{
+    animation: oct-bar 2s forwards;
+}
+
+
+@keyframes oct-bar{
+    100%{
+        width: 70%;
+    }
+}
+
+#nov-barras{
+    animation: nov-bar 2s forwards;
+}
+
+
+@keyframes nov-bar{
+    100%{
+        width: 70%;
+    }
+}
+
+#dic-barras{
+    animation: dic-bar 2s forwards;
+}
+
+
+@keyframes dic-bar{
+    100%{
+        width: 70%;
+    }
 }

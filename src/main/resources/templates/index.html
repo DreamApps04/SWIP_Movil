@@ -17,16 +17,173 @@
                     <section class="box-valores">
                         <div class="sec-box-valores">
                             <p><i class="fa-solid fa-money-bill fa-lg"></i> SALDO</p>
-                            <p>1000</p>
+                            <p><span>₡</span>1000</p>
                         </div>
                         <div class="sec-box-valores">
                             <p><i class="fa-solid fa-money-bills fa-lg"></i> INGRESO</p>
-                            <p>1000</p>
+                            <p><span>₡</span>1000</p>
                         </div>
                         <div class="sec-box-valores">
                             <p><i class="fa-solid fa-money-bill-transfer fa-lg"></i> GASTO</p>
-                            <p>1000</p>
+                            <p><span>₡</span>1000</p>
                         </div>
+                    </section>
+                    <section>
+                        <div class="tablaDatos tblHome">
+                            <div th:if="${movimientos != null and not movimientos.empty}">       
+                                <table>
+                                    <thead>
+                                        <!-- Encabezados de la tabla -->
+                                        <tr class="encabezado-tabla">
+                                            <th class="tabla-izq">Movimientos</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="movimientoItem : ${movimientos}" th:if="${movimientoItem != null}">
+                                            <td>
+                                                <!-- Contenedor para el nombre del credito -->
+                                                <div class="nombre-container">
+                                                    <span th:text="${movimientoItem.descipcion}"></span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!-- Sección listadoIngresos a la derecha -->
+
+                <div class="col-md-6 text-end">
+
+                    <section class="grafBarras">
+                        <div class="caja-padre">
+                            <div class="con">
+                                <h2>Linea de gastos</h2>
+
+                                <div class="listGastos">
+                                    <div class="detalles">
+                                        <span>Enero</span>
+                                        <span>1000000</span>
+                                    </div>
+                                    <div class="barras">
+                                        <div id="ene-barras"></div>
+                                    </div>
+                                </div>
+
+                                <div class="listGastos">
+                                    <div class="detalles">
+                                        <span>Febrero</span>
+                                        <span>1000000</span>
+                                    </div>
+                                    <div class="barras">
+                                        <div id="feb-barras"></div>
+                                    </div>
+                                </div>
+
+                                <div class="listGastos">
+                                    <div class="detalles">
+                                        <span>Marzo</span>
+                                        <span>1000000</span>
+                                    </div>
+                                    <div class="barras">
+                                        <div id="mar-barras"></div>
+                                    </div>
+                                </div>
+
+                                <div class="listGastos">
+                                    <div class="detalles">
+                                        <span>Abril</span>
+                                        <span>1000000</span>
+                                    </div>
+                                    <div class="barras">
+                                        <div id="abr-barras"></div>
+                                    </div>
+                                </div>
+
+                                <div class="listGastos">
+                                    <div class="detalles">
+                                        <span>Mayo</span>
+                                        <span>1000000</span>
+                                    </div>
+                                    <div class="barras">
+                                        <div id="may-barras"></div>
+                                    </div>
+                                </div>
+
+                                <div class="listGastos">
+                                    <div class="detalles">
+                                        <span>Junio</span>
+                                        <span>1000000</span>
+                                    </div>
+                                    <div class="barras">
+                                        <div id="jun-barras"></div>
+                                    </div>
+                                </div>
+
+                                <div class="listGastos">
+                                    <div class="detalles">
+                                        <span>Julio</span>
+                                        <span>1000000</span>
+                                    </div>
+                                    <div class="barras">
+                                        <div id="jul-barras"></div>
+                                    </div>
+                                </div>
+
+                                <div class="listGastos">
+                                    <div class="detalles">
+                                        <span>Agosto</span>
+                                        <span>1000000</span>
+                                    </div>
+                                    <div class="barras">
+                                        <div id="ago-barras"></div>
+                                    </div>
+                                </div>
+
+                                <div class="listGastos">
+                                    <div class="detalles">
+                                        <span>Septiembre</span>
+                                        <span>1000000</span>
+                                    </div>
+                                    <div class="barras">
+                                        <div id="sep-barras"></div>
+                                    </div>
+                                </div>
+
+                                <div class="listGastos">
+                                    <div class="detalles">
+                                        <span>Octubre</span>
+                                        <span>1000000</span>
+                                    </div>
+                                    <div class="barras">
+                                        <div id="oct-barras"></div>
+                                    </div>
+                                </div>
+
+                                <div class="listGastos">
+                                    <div class="detalles">
+                                        <span>Noviembre</span>
+                                        <span>1000000</span>
+                                    </div>
+                                    <div class="barras">
+                                        <div id="nov-barras"></div>
+                                    </div>
+                                </div>
+
+                                <div class="listGastos">
+                                    <div class="detalles">
+                                        <span>Diciembre</span>
+                                        <span>1000000</span>
+                                    </div>
+                                    <div class="barras">
+                                        <div id="dic-barras"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </section>
                 </div>
             </div>
