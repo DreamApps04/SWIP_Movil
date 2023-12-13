@@ -40,6 +40,4 @@ public Ahorro getAhorro(Ahorro ahorro) {
     return ahorroDao.findById(ahorro.getIdAhorro()).orElse(null);
 }
 
-  
-
 }

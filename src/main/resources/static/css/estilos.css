@@ -538,3 +538,419 @@ text-align: center;
     padding-bottom: 40px;
     text-align: center;
 }
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200px;
+    padding: 10px;
+    background: #000916;
+    z-index: 100;
+    
+    
+}
+
+.sidebar {
+    list-style: none;
+    align-items: left;
+}
+
+.menu{
+    margin-top: 15px;
+}
+
+.sidebar li a{
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    color: white;
+}
+
+.sidebar ul, ol {
+    padding-left: 0;
+}
+
+.nav-link{
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.bottom-content{
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+}
+
+.logo{
+    align-items: center;
+    width: 75px;
+    height: 75px;
+}
+
+.home{
+    position: absolute;
+    top: 0;
+    left: 210px;
+    height: 100vh;
+    width: calc(100% - 210px);
+}
+
+.titleBar{
+    width: 745px;
+    height: 87px;
+    top: 45px;
+    left: 50px;
+    border-radius: 30px;
+    background: #3A86CB;
+}
+
+.card{
+    background-color: #3A86CB;
+    margin-top: 20px;
+    color: white;
+    border-radius: 50px;
+    width: 100%;
+    height: 35px;
+}
+
+.titulo-home{
+    background-color: #3A86CB;
+    margin-top: 30px;
+    color: white;
+    border-radius: 30px;
+    width: 100%;
+    height: 70px;
+}
+
+.text-titulo{
+    padding-top: 15px;
+}
+
+.box-valores{
+    display: flex;
+    
+}
+
+.sec-banox-valores{
+    border: 2px solid #4897E0;
+    margin: 30px;
+    color: white;
+    border-radius: 30px;
+    width: 100%;
+    height: 125px;
+    text-align: center;
+}
+
+
+.container{
+    margin-left: 5px;
+    max-width: 770px;
+    max-height: 690px;
+}
+
+.form-control{
+    background-color: #041023;
+    color: white;
+    margin-right: 3cm;
+    border-color: #3A86CB;
+}
+
+.container.botones{
+    margin-right: 10px; 
+    display: flex;
+    justify-content:center;
+    margin-top: 20px;
+}
+
+.boton.eliminar{
+    width: 100px;
+    height: 35px;
+    background-color: #FF6347;
+    border-radius: 50px;
+    color:white;
+    border:none;
+}
+
+.boton.guardar{
+    width: 100px;
+    height: 35px;
+    background-color: #87CEFA;
+    border-radius: 50px;
+    color:white;
+    border:none;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.boton-cancelar{
+    width: 100px;
+    height: 35px;
+    background-color: #FF6347;
+    border-radius: 50px;
+    color:white;
+    border:none;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.boton.editar{
+    width: 100px;
+    height: 35px;
+    background-color: #A9A9A9;
+    border-radius: 50px;
+    color:white;
+    border:none;
+}
+
+.iconos {
+    display: flex;
+    justify-content: center;
+}
+
+.icono-container {
+    background-color: #3A86CB;
+    padding: 10px;
+    border-radius: 125px;
+    margin-right: 10px;
+
+}
+
+.icono-container i {
+    color: white; 
+    font-size: 24px;
+}
+
+.container-principal{
+    display: flex;
+    justify-content: space-between;
+}
+
+.tablaDatos {
+    overflow: auto;
+    width: 80%;
+    border-radius: 2rem;
+    border: 1px solid #4897E0;
+    margin-left: 5px;
+    margin-top: 25px;
+    margin-right: 15%;
+    display: inline-block;
+}
+
+.tablaDatos td{
+    overflow: hidden;
+    border-radius: 1rem;
+    border: 1px solid #4897E0;
+    height: 118px;
+    width: 350px;
+    background-color: #041023;
+    color: white;
+      
+}
+
+.iconostabla{
+    background-color: #3A86CB;
+    padding: 10px;
+    border-radius: 125px; 
+    margin-right: 125px;
+}
+
+.iconostabla i{
+    color: white; 
+    font-size: 24px;
+}
+
+.icono-boton {
+    border: none;
+    padding: 0;
+    background-color: #3A86CB;
+}
+
+.nombre-container span {
+    display: block;
+    text-align: left;
+    margin-top: -5px;
+    margin-left: 15px;
+}
+
+.icono-container-table{
+    background-color: #3A86CB;
+    padding: 11px;
+    border-radius: 50%;
+    margin-left: 7px;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.icono-container-table i {
+    color: white; 
+    font-size: 30px;
+}
+
+
+.separacioniconomonto{
+    display:flex;
+    justify-content: space-between;
+}
+
+.monto-container-table{
+    font-weight: bold;
+    display: block;
+    text-align: right;
+    margin-top: 5px; 
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+.icono-seleccionado {
+    border: 2px solid #3A86CB;
+
+}
+
+.table {
+    width: 100%;
+}
+
+.table tbody {
+    display: block;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+
+.table thead, .table tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.eliminaringreso {
+    position: relative;
+}
+
+.table td:nth-child(2) {
+    width: auto; 
+}
+
+.descripcion-container {
+    margin-top: 10px; 
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+
+.eliminar-btn {
+    position: absolute;
+    bottom: 45px;
+    right: 7px;
+    margin: 3px;
+    font-size: 7px;
+}
+.icono-container input:checked + label {
+    background-color: #ccc;
+    color: #ccc; 
+    border: solid #ccc;
+}
+.label-doble{
+    display: flex; 
+    margin-bottom: 4;
+    justify-content: space-between;
+}
+
+.items-doble{
+    
+}
+
+.container-info-box{
+    display: block;
+    justify-content: center;
+    margin: 20px;
+    width: 100%;
+}
+
+.credito-box span{
+    width: 60%;
+    max-width: 600px;
+    padding: 5px;
+    border-radius: 30px;
+    border: 2px solid #FF3D00;
+    text-align: justify;
+    color:white;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.finan-box span{
+    width: 60%;
+    max-width: 600px;
+    padding: 5px;
+    border-radius: 30px;
+    border: 2px solid #1A91FF;
+    text-align: justify;
+    color:white;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.card-header{
+    background-color: #3A86CB;
+    text-align: center;
+}
+
+.card-login{
+    background-color: #072842;
+}
+
+.botoningresar{
+    width: 115px;
+    height: 35px;
+    background-color: #87CEFA;
+    border-radius: 50px;
+    color: white;
+    border: none;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+.botonregistrar {
+    width: 115px;
+    height: 35px;
+    background-color: #F4BB57;
+    border-radius: 50px;
+    color: white;
+    border: none;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+.botonrecordar{
+     width: 115px;
+    height: 35px;
+    background-color: #DED135;
+    border-radius: 50px;
+    color: white;
+    border: none;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+.titulos-pagina {
+    margin-bottom: 25px;
+}
+
+.encabezado-tabla{
+    background-color: #4897E0;
+    height: 30px;
+}
+
+.tabla-izq{
+    padding-left: 15px;
+}
+
+.tabla-der{
+    text-align: right;
+    padding-right: 15px;
+}
