@@ -19,27 +19,27 @@ public class ReporteController {
     ReporteService reporteService;
      
     @GetMapping("/principal")
-    public String principa(Model model){
+    public String principal(Model model){
         return "/reportes/principal";
     }
      
-    @GetMapping("/usuarios")
-    public ResponseEntity<Resource> usuarios(@RequestParam String tipo) throws IOException{
-        return reporteService.generaReporte("usuarios", null, tipo);
+    @GetMapping("/Ingresos")
+    public ResponseEntity<Resource> ingresos(@RequestParam String tipo) throws IOException{
+        return reporteService.generaReporte("Ingresos", null, tipo);
     }
      
-    @GetMapping("/ventas")
-    public ResponseEntity<Resource> ventas(@RequestParam String tipo) throws IOException{
-        return reporteService.generaReporte("ventas", null, tipo);
+    @GetMapping("/Presupuestos")
+    public ResponseEntity<Resource> presupuestos(@RequestParam String tipo) throws IOException{
+        return reporteService.generaReporte("Presupuestos", null, tipo);
     }
      
-    @GetMapping("/productos")
-    public ResponseEntity<Resource> productos(@RequestParam String tipo) throws IOException{
-        return reporteService.generaReporte("productos", null, tipo);
+    @GetMapping("/Credito")
+    public ResponseEntity<Resource> credito(@RequestParam String tipo) throws IOException{
+        return reporteService.generaReporte("Credito", null, tipo);
     }
      
-    @GetMapping("/facturas")
-    public ResponseEntity<Resource> facturas(@RequestParam String tipo) throws IOException{
-        return reporteService.generaReporte("facturas", null, tipo);
+    @GetMapping("/Ahorro")
+    public ResponseEntity<Resource> ahorro(@RequestParam String tipo) throws IOException{
+        return reporteService.generaReporte("Ahorro", null, tipo);
     }
 }
