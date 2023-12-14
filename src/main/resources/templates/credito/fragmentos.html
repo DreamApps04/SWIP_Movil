@@ -103,7 +103,7 @@
                                                     <div class="monto-container-table">
                                                         <span th:text="${creditoItem.monto}"></span>
                                                     </div>
-                                                    <form th:action="@{/credito/eliminar/{idcredito}}" method="post">
+                                                    <form th:action="@{/credito/eliminar/{idCredito}}" method="post">
                                                         <input type="hidden" name="idcredito" th:value="${creditoItem.idcredito}" />
                                                         <button type="submit" class="btn btn-danger eliminar-btn">
                                                             <i class="fa-solid fa-xmark"></i>

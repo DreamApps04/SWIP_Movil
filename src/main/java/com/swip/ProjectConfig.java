@@ -34,12 +34,12 @@ public void addViewControllers(ViewControllerRegistry registry) {
                         "/ahorro/listado","/ahorro/**",
                         "/ahorro/eliminar/{idAhorro}", "/credito/nuevo",
                         "/credito/creditos", "/credito/modifica/**",
-                        "/credito/guardar", "/credito/eliminar/{idcredito}",
-                        "/presupuesto/listado", "/presupuesto/eliminar**", 
-                        "/presupuesto/guardar", "/reportes/**", "/reportes/Ingresos**")
+                        "/credito/guardar", "/credito/eliminar/{idCredito}**",
+                        "/presupuesto/listado", "/presupuesto/eliminar/{idPresopuesto}**", 
+                        "/presupuesto/guardar", "/reportes/**", "/reportes/usuarios/**")
                         .permitAll()
                 .requestMatchers(
-                        "/usuario/nuevo","/usuario/guardar",
+                        "/usuario/**","/usuario/nuevo","/usuario/guardar",
                         "/usuario/modificar/**","/usuario/eliminar/**"
                 ).hasRole("ADMIN")
                 )

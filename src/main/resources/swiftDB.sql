@@ -101,9 +101,9 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
 INSERT INTO swiftDB.usuario (id_usuario, username, password, nombre, apellidos, correo, telefono, ruta_imagen, activo) VALUES
-('1', 'Javier', '$2a$10$P1.w58XvnaYQUQgZUCk4aO/RTRl8EValluCqB3S2VMLTbRt.tlre.', 'Javier', 'Madrigal Pozo', 'javier@dreamapps.com', '123456789', 'https://www.bing.com/images/search?view=detailV2&ccid=RzJh1B%2bx&id=97FB829005F9D8DB4838522C8E1D84A190D991A6&thid=OIP.RzJh1B-xpinTNPOGsZmDiAHaF7&mediaurl=https%3a%2f%2ficon-library.com%2fimages%2fusername-icon%2fusername-icon-24.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.473261d41fb1a629d334f386b1998388%3frik%3dppHZkKGEHY4sUg%26pid%3dImgRaw%26r%3d0&exph=1024&expw=1280&q=username+1+icon&simid=607992869516498751&FORM=IRPRST&ck=B464C0EFCA7391D44764B7C46CC70FE6&selectedIndex=13&ajaxhist=0&ajaxserp=0', true ),
-('2', 'Gabriel', '$2a$10$P1.w58XvnaYQUQgZUCk4aO/RTRl8EValluCqB3S2VMLTbRt.tlre.', 'Gabriel', 'BARAHONA WALKER', 'gabriel@dreamapps.com', '987654321', 'https://www.bing.com/images/search?view=detailV2&ccid=RzJh1B%2bx&id=97FB829005F9D8DB4838522C8E1D84A190D991A6&thid=OIP.RzJh1B-xpinTNPOGsZmDiAHaF7&mediaurl=https%3a%2f%2ficon-library.com%2fimages%2fusername-icon%2fusername-icon-24.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.473261d41fb1a629d334f386b1998388%3frik%3dppHZkKGEHY4sUg%26pid%3dImgRaw%26r%3d0&exph=1024&expw=1280&q=username+1+icon&simid=607992869516498751&FORM=IRPRST&ck=B464C0EFCA7391D44764B7C46CC70FE6&selectedIndex=13&ajaxhist=0&ajaxserp=0', true),
-('3', 'Joseth', '$2a$10$P1.w58XvnaYQUQgZUCk4aO/RTRl8EValluCqB3S2VMLTbRt.tlre.', 'Joseth', 'ARAYA GONZALEZ', 'joseth@dreamapps.com', '1122334455', 'https://www.bing.com/images/search?view=detailV2&ccid=RzJh1B%2bx&id=97FB829005F9D8DB4838522C8E1D84A190D991A6&thid=OIP.RzJh1B-xpinTNPOGsZmDiAHaF7&mediaurl=https%3a%2f%2ficon-library.com%2fimages%2fusername-icon%2fusername-icon-24.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.473261d41fb1a629d334f386b1998388%3frik%3dppHZkKGEHY4sUg%26pid%3dImgRaw%26r%3d0&exph=1024&expw=1280&q=username+1+icon&simid=607992869516498751&FORM=IRPRST&ck=B464C0EFCA7391D44764B7C46CC70FE6&selectedIndex=13&ajaxhist=0&ajaxserp=0', false);
+('1', 'Javier', '$2a$10$P1.w58XvnaYQUQgZUCk4aO/RTRl8EValluCqB3S2VMLTbRt.tlre.', 'Javier', 'Madrigal Pozo', 'javier@dreamapps.com', '123456789', 'https://firebasestorage.googleapis.com/v0/b/techshop-db74d.appspot.com/o/SWIP%2Fjavi.png?alt=media&token=2ad28101-c6e8-4f6a-9a0c-a58c4e912c36', true ),
+('2', 'Gabriel', '$2a$10$P1.w58XvnaYQUQgZUCk4aO/RTRl8EValluCqB3S2VMLTbRt.tlre.', 'Gabriel', 'BARAHONA WALKER', 'gabriel@dreamapps.com', '987654321', 'https://firebasestorage.googleapis.com/v0/b/techshop-db74d.appspot.com/o/SWIP%2Fgabo.png?alt=media&token=e30c80c4-e9c1-4761-969f-c723d2693471', true),
+('3', 'Joseth', '$2a$10$P1.w58XvnaYQUQgZUCk4aO/RTRl8EValluCqB3S2VMLTbRt.tlre.', 'Joseth', 'ARAYA GONZALEZ', 'joseth@dreamapps.com', '1122334455', 'https://firebasestorage.googleapis.com/v0/b/techshop-db74d.appspot.com/o/SWIP%2FJoseth.jpeg?alt=media&token=8ff09286-34ca-46fd-a506-e180cda3f3fd', false);
 
 INSERT INTO swiftDB.presupuesto (id_gasto, nombre_Gasto, descripcion, monto, mes_Ingreso, num_Quincena) VALUES 
 ('1', 'Servicios', 'pago de agua y luz', 50000, 'Noviembre', '1'),
@@ -132,16 +132,3 @@ INSERT INTO swiftDB.movimientos (id_movimiento, nombre, descripcion, monto, fech
 
 INSERT INTO swiftDB.rol (id_rol, nombre, id_usuario) VALUES
  (1,'ROLE_ADMIN',1), (2,'ROLE_ADMIN',2), (3,'ROLE_ADMIN',3)
-
--- triggers
-DELIMITER //
-CREATE TRIGGER swiftDB.TG_ahorro_insert
-AFTER INSERT ON swiftDB.ahorro
-FOR EACH ROW
-BEGIN
-    -- Insertar datos en otra_tabla
-    INSERT INTO swiftDB.movimientos (nombre, descripcion, monto, fechaMovimiento, userID)
-    VALUES ("INGRESO DE AHORRO", "Se realiza el ingreso de un nuevo ahorro", NEW.monto, sysdate(), @userID);
-END;
-//
-DELIMITER ;
