@@ -36,7 +36,7 @@ public void addViewControllers(ViewControllerRegistry registry) {
                         "/credito/creditos", "/credito/modifica/**",
                         "/credito/guardar", "/credito/eliminar/{idCredito}**",
                         "/presupuesto/listado", "/presupuesto/eliminar/{idPresopuesto}**", 
-                        "/presupuesto/guardar", "/reportes/**", "/reportes/usuarios/**")
+                        "/presupuesto/guardar", "/reportes/**", "/reportes/Ingresos/**")
                         .permitAll()
                 .requestMatchers(
                         "/usuario/**","/usuario/nuevo","/usuario/guardar",
