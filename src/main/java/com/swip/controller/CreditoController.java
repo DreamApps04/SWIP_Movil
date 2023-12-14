@@ -41,7 +41,7 @@ public class CreditoController {
         return "redirect:/credito/creditos";
     }
 
-    @GetMapping("/eliminar/{idCredito}")
+    @RequestMapping("/eliminar/{idCredito}")
     public String creditoEliminar(Credito credito) {
         creditoService.delete(credito);
         return "redirect:/credito/creditos";

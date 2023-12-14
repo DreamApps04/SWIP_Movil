@@ -59,7 +59,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         usuario=usuarioDao.save(usuario);
         if (crearRolUser) {  //Si se está creando el usuario, se crea el rol por defecto "USER"
             Rol rol = new Rol();
-            rol.setNombre("ROLE_USUARIO");
+            rol.setNombre("ROLE_USER");
             rol.setIdUsuario(usuario.getIdUsuario());
             rolDao.save(rol);
         }

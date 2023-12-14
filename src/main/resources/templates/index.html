@@ -30,20 +30,77 @@
                     </section>
                     <section>
                         <div class="tablaDatos tblHome">
-                            <div th:if="${movimientos != null and not movimientos.empty}">       
+                            <div>       
                                 <table>
                                     <thead>
                                         <!-- Encabezados de la tabla -->
-                                        <tr class="encabezado-tabla">
-                                            <th class="tabla-izq">Movimientos</th>
+                                        <tr class="encabezado-tablainicio">
+                                            <th class="tabla-izqinicio">Presopuestos</th>
+                                            <th class="tabla-derinicio">Movimientos</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr th:each="movimientoItem : ${movimientos}" th:if="${movimientoItem != null}">
+                                        <tr>
                                             <td>
-                                                <!-- Contenedor para el nombre del credito -->
-                                                <div class="nombre-container">
-                                                    <span th:text="${movimientoItem.descipcion}"></span>
+                                                <!-- Contenedor para el icono y el monto -->
+                                                <div class="separacioniconomonto">
+                                                    <div class="icono-container-table">
+                                                        <i class="fas fa-briefcase"></i>
+                                                    </div>
+                                                    <!-- Contenedor para el monto -->
+                                                    <div class="monto-container-tableinicio">
+                                                        <span>Planilla</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="eliminaringreso">
+                                                    <div class="descripcion-containerinicio">
+                                                        <span>500000</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Repite el bloque anterior para cada conjunto de valores estáticos -->
+                                        <tr>
+                                                  <td>
+                                                <!-- Contenedor para el icono y el monto -->
+                                                <div class="separacioniconomonto">
+                                                    <div class="icono-container-table">
+                                                        <i class="fas fa-handshake"></i>
+                                                    </div>
+                                                    <!-- Contenedor para el monto -->
+                                                    <div class="monto-container-tableinicio">
+                                                        <span>Ahorro</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="eliminaringreso">
+                                                    <div class="descripcion-containerinicio">
+                                                        <span>50</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                         <tr>
+                                                  <td>
+                                                <!-- Contenedor para el icono y el monto -->
+                                                <div class="separacioniconomonto">
+                                                    <div class="icono-container-table">
+                                                        <i class="fa-solid fa-people-group"></i>
+                                                    </div>
+                                                    <!-- Contenedor para el monto -->
+                                                    <div class="monto-container-tableinicio">
+                                                        <span>Servicios</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="eliminaringreso">
+                                                    <div class="descripcion-containerinicio">
+                                                        <span>1000000000</span>
+                                                    </div>
                                                 </div>
                                             </td>
                                         </tr>
